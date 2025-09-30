@@ -1,0 +1,44 @@
+--DE AUTH CUANDO ES MAGIC LINK CON SUPABASE
+create or replace function handle_new_user()
+returns trigger as $$
+begin
+  insert into usuarios (idUsuario, correo, nombre, numeroTelefono)
+  values (new.id, new.email, '', '');
+  return new;
+end;
+$$ language plpgsql security definer;
+
+drop trigger if exists on_auth_user_created on auth.users;
+create trigger on_auth_user_created
+after insert on auth.users
+for each row execute function handle_new_user();
+
+--TRIGGER PARA ACTUALIZAR TOTAL REPORTES EN USUARIOS
+-- Función que actualiza el contador
+CREATE OR REPLACE FUNCTION upsert_veces_reportado()
+RETURNS TRIGGER AS $$
+BEGIN
+  INSERT INTO reportados (idNumero, vecesReportado)
+  VALUES (NEW.idNumero, 1)
+  ON CONFLICT (idNumero)
+  DO UPDATE SET vecesReportado = reportados.vecesReportado + 1;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_upsert_veces_reportado
+AFTER INSERT ON reportes
+FOR EACH ROW
+EXECUTE FUNCTION upsert_veces_reportado();
+
+
+-- TRIGGER PARA BORRAR USUARIOS NO CONFIRMADOS DESPUÉS DE 3 DÍAS
+CREATE OR REPLACE FUNCTION borrar_usuarios_no_confirmados() RETURNS void AS $$
+BEGIN
+   DELETE FROM usuarios
+   WHERE emailConfirmado = false AND fechaCreacion < NOW() - INTERVAL '3 days';
+END;
+$$ LANGUAGE plpgsql;
+
+-- Luego, puedes ejecutar esto cada día con un cron job de Supabase o un scheduler externo
+SELECT borrar_usuarios_no_confirmados();

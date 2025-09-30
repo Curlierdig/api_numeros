@@ -50,3 +50,7 @@ project/
 ├── requirements.txt             # Dependencias (FastAPI, SQLAlchemy, Twilio)
 ├── .env                         # Variables de entorno (DB, API keys)
 └── README.md                    # Documentación
+
+
+
+FastAPI → service → repository → Supabase
