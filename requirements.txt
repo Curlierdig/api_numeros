@@ -5,9 +5,10 @@ uvicorn[standard]==0.30.6
 # --- Validación y seguridad ---
 pydantic==2.9.2
 python-dotenv==1.0.1
-pip install "passlib[bcrypt]"
 pip install "python-jose[cryptography]"
 email-validator==2.0.0
+passlib==1.7.4
+bcrypt==3.2.2
 # --- Supabase SDK ---
 supabase==2.5.0              # SDK oficial de Supabase (auth, storage, etc.)
 
