@@ -2,10 +2,15 @@ from app.core.supabase_client import supabase
 import logging
 from postgrest.exceptions import APIError
 
-class UsuariosRepository:
+from app.core.supabase_client import supabase
+import logging
+from postgrest.exceptions import APIError
+
+class CuentaRepository:
     def __init__(self):
-        self.nombre_tabla = "usuarios"
         self.cliente = supabase
+
+    # --- Métodos de Usuarios ---
 
     async def crear_usuario(self, datos_usuario: dict):
         """
@@ -27,7 +32,7 @@ class UsuariosRepository:
             dict: Respuesta de la operación
         """
         try:
-            response = self.cliente.table(self.nombre_tabla).insert(datos_usuario).execute()
+            response = self.cliente.table("usuarios").insert(datos_usuario).execute()
             return response.data
         except APIError as e:
             logging.error(f"Error de Supabase al crear usuario: {e.message}")
@@ -45,13 +50,13 @@ class UsuariosRepository:
             dict: Dato del usuario correspondiente al idUsuario y campo solicitado.
         """
         try:
-            response = self.cliente.table(self.nombre_tabla).select(dato_requerido).eq("id", idUsuario).execute()
+            response = self.cliente.table("usuarios").select(dato_requerido).eq("id", idUsuario).execute()
             return response.data
         except APIError as e:
             logging.error(f"Error de Supabase al obtener usuario por ID ({idUsuario}): {e.message}")
             raise e
 
-    async def obtener_id_usuario_por_correo_y_telefono(self, correo: str, telefono: str):
+    async def obtener_id_y_nombre_usuario_por_correo_y_telefono(self, correo: str, telefono: str):
         """
           Parámetros:
               correo (str): Correo electrónico del usuario.
@@ -60,7 +65,7 @@ class UsuariosRepository:
               dict: Respuesta de la operación
         """
         try:
-            response = self.cliente.table(self.nombre_tabla).select("id").eq("correo", correo).eq("numeroTelefono", telefono).execute()
+            response = self.cliente.table("usuarios").select("id, nombre").eq("correo", correo).eq("numeroTelefono", telefono).execute()
             return response.data
         except APIError as e:
             logging.error(f"Error de Supabase al obtener usuario por correo y teléfono: {e.message}")
@@ -77,7 +82,7 @@ class UsuariosRepository:
             dict: Respuesta de la operación
         """
         try:
-            response = self.cliente.table(self.nombre_tabla).update(datos_actualizados).eq("id", idUsuario).execute()
+            response = self.cliente.table("usuarios").update(datos_actualizados).eq("id", idUsuario).execute()
             return response.data
         except APIError as e:
             logging.error(f"Error de Supabase al actualizar usuario ({idUsuario}): {e.message}")
@@ -85,16 +90,13 @@ class UsuariosRepository:
 
     async def eliminar_usuario(self, idUsuario: int):
         try:
-            response = self.cliente.table(self.nombre_tabla).delete().eq("id", idUsuario).execute()
+            response = self.cliente.table("usuarios").delete().eq("id", idUsuario).execute()
             return response.data
         except APIError as e:
             logging.error(f"Error de Supabase al eliminar usuario ({idUsuario}): {e.message}")
             raise e
 
-class AdministradoresRepository:
-    def __init__(self):
-        self.nombre_tabla = "administradores"
-        self.cliente = supabase
+    # --- Métodos de Administradores ---
 
     async def crear_administrador(self, datos_administrador: dict):
         """
@@ -109,7 +111,7 @@ class AdministradoresRepository:
             dict: Respuesta de la operación
         """
         try:
-            response = self.cliente.table(self.nombre_tabla).insert(datos_administrador).execute()
+            response = self.cliente.table("administradores").insert(datos_administrador).execute()
             return response.data
         except APIError as e:
             logging.error(f"Error de Supabase al crear administrador: {e.message}")
@@ -123,22 +125,23 @@ class AdministradoresRepository:
             dict: Datos del administrador correspondiente al idAdmin proporcionado.
         """
         try:
-            response = self.cliente.table(self.nombre_tabla).select("*").eq("id", idAdmin).execute()
+            response = self.cliente.table("administradores").select("*").eq("id", idAdmin).execute()
             return response.data
         except APIError as e:
             logging.error(f"Error de Supabase al obtener administrador por ID ({idAdmin}): {e.message}")
             raise e
 
-    async def obtener_id_administrador_por_correo_y_matricula(self, correo: str, matricula: str):
+    async def obtener_id_nombre_y_rol_administrador_por_correo_matricula_y_contrasena(self, correo: str, matricula: str, contrasena: str):
         """
         Parámetros:
             correo (str): Correo electrónico del administrador.
             matricula (str): Matrícula del administrador.
+            contrasena (str): Contraseña del administrador.
         Retorna:
             dict: Datos del administrador correspondiente al correo y matrícula proporcionados.
         """
         try:
-            response = self.cliente.table(self.nombre_tabla).select("idAdmin").eq("correo", correo).eq("matricula", matricula).execute()
+            response = self.cliente.table("administradores").select("idAdmin, nombre, esSuper").eq("correo", correo).eq("matricula", matricula).eq("contrasena", contrasena).execute()
             return response.data
         except APIError as e:
             logging.error(f"Error de Supabase al obtener administrador por correo y matrícula: {e.message}")
@@ -152,10 +155,9 @@ class AdministradoresRepository:
             dict: Respuesta de la operación
         """
         try:
-            response = self.cliente.table(self.nombre_tabla).delete().eq("idAdmin", idAdmin).execute()
+            response = self.cliente.table("administradores").delete().eq("idAdmin", idAdmin).execute()
             return response.data
         except APIError as e:
             logging.error(f"Error de Supabase al eliminar administrador ({idAdmin}): {e.message}")
             raise e
-
 

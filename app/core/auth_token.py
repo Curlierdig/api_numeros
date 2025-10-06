@@ -8,16 +8,16 @@ load_dotenv()
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = os.getenv("ALGORITHM")
 
-def crear_token_acceso(id_usuario: str, nombre: str = None, rol: str = "usuario") -> dict:
+def crear_token_acceso(id: str, nombre: str = None, rol: str = "normal") -> dict:
     """
     Crear token de acceso JWT
     parametros:
-    - id_usuario: str -> ID del usuario
+    - id: str -> ID del usuario
     - nombre: str -> Nombre del usuario
-    - rol: str -> Rol del usuario (por defecto "usuario")
+    - rol: str -> Rol del usuario (por defecto "normal")
     retorna: dict -> "access_token": Diccionario con el token de acceso
     """
-    payload = {"sub": id_usuario, 
+    payload = {"sub": id, 
                "nombre": nombre,
                "rol": rol,
                "exp": datetime.now(timezone.utc) + (timedelta(minutes=30))

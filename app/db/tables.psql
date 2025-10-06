@@ -17,7 +17,6 @@ create table usuarios (
   idUsuario uuid primary key default gen_random_uuid(),
   idAdmin uuid references admin(idAdmin) on delete set null,
   nombre text not null,
-  correo text unique not null,
   edad int,
   sexo text,
   municipio text,
@@ -25,6 +24,14 @@ create table usuarios (
   numeroTelefono text unique not null,
   totalReportes int default 0,
   fechaCreacion timestamp default now()
+);
+
+--======================================
+-- TABLA CORREOS
+--======================================
+create table correos (
+  idUsuario uuid references usuarios(idUsuario) on delete cascade,
+  correo text
 );
 
 -- =====================================
