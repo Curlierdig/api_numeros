@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from app.services.cuenta_service import CuentaService
-from app.services.dependencias import get_cuenta_service
+from app.services import get_cuenta_service, CuentaService
 from models.incidencia_model import CrearIncidencia
 from models.user_model import UserSession
 
@@ -17,10 +17,13 @@ async def login(
     role: str = "normal", # en el front mandaria oculto si es admin o normal
     cuenta_service: CuentaService = Depends(get_cuenta_service)
 ):
-    token = await cuenta_service.login(email, password, role)
-    if not token:
-        raise HTTPException(status_code=401, detail="Credenciales inválidas")
-    return {"access_token": token}
+    try:
+        token = await cuenta_service.login(email, password, role)
+        if not token:
+            raise HTTPException(status_code=401, detail="Credenciales inválidas")
+        return {"access_token": token}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
     return {"message": "Login exitoso"}
 

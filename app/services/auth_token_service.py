@@ -1,5 +1,5 @@
 from fastapi import Depends, HTTPException
-from app.core.auth_token import validar_token
+from app.utils.auth_token import validar_token
 # se usara cuando el usuario intente acceder a un area restringida
 # y se necesite validar su token y rol
 def requiere_admin(usuario=Depends(validar_token)):
