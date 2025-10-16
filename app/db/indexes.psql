@@ -1,0 +1,10 @@
+CREATE INDEX idx_numero_reportado ON reportados(numeroReportado);
+
+CREATE INDEX idx_mv_busqueda_reportes_trgm
+ON mv_busqueda_reportes
+USING gin (
+  (nombre_usuario || ' ' || numeroReportado || ' ' || categoriaReporte || ' ' || estatus) gin_trgm_ops
+);
+
+CREATE UNIQUE INDEX idx_mv_busqueda_reportes_id
+ON mv_busqueda_reportes (idReporte);

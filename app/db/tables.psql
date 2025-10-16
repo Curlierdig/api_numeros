@@ -32,7 +32,7 @@ create table usuarios (
 create table correos (
   idUsuario uuid references usuarios(idUsuario) on delete cascade,
   correo text
-);
+); 
 
 -- =====================================
 -- TABLA REPORTADOS (números reportados)
@@ -57,7 +57,6 @@ create table reportes (
   genero text,
   supuestoNombre text,
   supuestoTrabajo text,
-  esVisible boolean default true,
   estatus text default 'pendiente'
 );
 

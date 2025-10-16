@@ -1,0 +1,187 @@
+-- =====================================
+-- 0️⃣ EXTENSIONES
+-- =====================================
+-- pg_trgm permite búsquedas rápidas por similitud de texto y trigramas
+CREATE EXTENSION IF NOT EXISTS pg_trgm;
+
+-- =====================================
+-- 1️⃣ TABLAS BASE
+-- =====================================
+
+-- Administradores: usuarios que pueden registrar reportes
+CREATE TABLE IF NOT EXISTS administradores (
+  idAdmin uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  nombre text NOT NULL,
+  matricula text UNIQUE NOT NULL, -- número de empleado
+  correo text UNIQUE NOT NULL,
+  contrasena text NOT NULL,
+  esSuper boolean DEFAULT false -- superadmin
+);
+
+-- Usuarios: personas que reportan incidentes
+CREATE TABLE IF NOT EXISTS usuarios (
+  idUsuario uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  idAdmin uuid REFERENCES administradores(idAdmin) ON DELETE SET NULL,
+  nombre text NOT NULL,
+  edad int,
+  sexo text,
+  municipio text,
+  entidadForanea text, -- estado
+  numeroTelefono text UNIQUE NOT NULL,
+  totalReportes int DEFAULT 0,
+  fechaCreacion timestamp DEFAULT now()
+);
+
+-- Correos asociados a usuarios
+CREATE TABLE IF NOT EXISTS correos (
+  idUsuario uuid REFERENCES usuarios(idUsuario) ON DELETE CASCADE,
+  correo text
+);
+
+-- Números reportados
+CREATE TABLE IF NOT EXISTS reportados (
+  idNumero uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  numeroReportado text UNIQUE NOT NULL,
+  vecesReportado int DEFAULT 1 -- contador de cuántas veces ha sido reportado
+);
+
+-- Reportes individuales
+CREATE TABLE IF NOT EXISTS reportes (
+  idReporte uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  idUsuario uuid REFERENCES usuarios(idUsuario) ON DELETE CASCADE,
+  idNumero uuid REFERENCES reportados(idNumero) ON DELETE CASCADE,
+  categoriaReporte text CHECK (categoriaReporte IN ('extorsion','acoso','spam')),
+  fechaReporte timestamp DEFAULT now(),
+  descripcion text,
+  medioContacto text,
+  genero text,
+  supuestoNombre text,
+  supuestoTrabajo text,
+  esVisible boolean DEFAULT true,
+  estatus text DEFAULT 'pendiente'
+);
+
+-- Destino asociado a reportes (tarjeta o ubicación)
+CREATE TABLE IF NOT EXISTS destino (
+  idDestino uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  tipoEnum text CHECK (tipoEnum IN ('tarjeta','ubicacion')),
+  numeroTarjeta text,
+  direccion text,
+  idReporte uuid REFERENCES reportes(idReporte) ON DELETE CASCADE
+);
+
+-- =====================================
+-- 2️⃣ VISTA NORMAL (OPCIONAL)
+-- =====================================
+-- Vista simple para consultar reportes sin índices especiales
+-- Útil para pruebas, no se usa en búsquedas rápidas
+-- CREATE OR REPLACE VIEW vista_busqueda_reportes AS
+-- SELECT 
+--     r.idReporte,
+--     u.nombre AS nombre_usuario,
+--     rep.numeroReportado,
+--     r.categoriaReporte,
+--     r.fechaReporte,
+--     r.estatus
+-- FROM reportes r
+-- LEFT JOIN usuarios u ON r.idUsuario = u.idUsuario
+-- LEFT JOIN reportados rep ON r.idNumero = rep.idNumero;
+
+-- =====================================
+-- 3️⃣ MATERIALIZED VIEW PARA BÚSQUEDAS RÁPIDAS
+-- =====================================
+-- Contiene todos los campos necesarios para búsquedas con pg_trgm
+CREATE MATERIALIZED VIEW IF NOT EXISTS mv_busqueda_reportes AS
+SELECT 
+    r.idReporte,
+    u.nombre AS nombre_usuario,
+    rep.numeroReportado,
+    r.categoriaReporte,
+    r.fechaReporte,
+    r.estatus
+FROM reportes r
+LEFT JOIN usuarios u ON r.idUsuario = u.idUsuario
+LEFT JOIN reportados rep ON r.idNumero = rep.idNumero;
+
+-- Índice único para operaciones de inserción/actualización incremental
+CREATE UNIQUE INDEX IF NOT EXISTS idx_mv_busqueda_reportes_id
+ON mv_busqueda_reportes (idReporte);
+
+-- Índice GIN para búsquedas parciales rápidas con pg_trgm
+CREATE INDEX IF NOT EXISTS idx_mv_busqueda_reportes_trgm
+ON mv_busqueda_reportes
+USING gin ((nombre_usuario || ' ' || numeroReportado || ' ' || categoriaReporte || ' ' || estatus) gin_trgm_ops);
+
+-- Índice para búsquedas exactas de número reportado
+CREATE INDEX IF NOT EXISTS idx_numero_reportado ON reportados(numeroReportado);
+
+-- =====================================
+-- 4️⃣ FUNCION Y TRIGGER: ACTUALIZAR VECES REPORTADO
+-- =====================================
+-- Cada vez que se inserta un reporte, se incrementa el contador en reportados
+CREATE OR REPLACE FUNCTION upsert_veces_reportado()
+RETURNS TRIGGER AS $$
+BEGIN
+  INSERT INTO reportados (idNumero, vecesReportado)
+  VALUES (NEW.idNumero, 1)
+  ON CONFLICT (idNumero)
+  DO UPDATE SET vecesReportado = reportados.vecesReportado + 1;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_upsert_veces_reportado
+AFTER INSERT ON reportes
+FOR EACH ROW
+EXECUTE FUNCTION upsert_veces_reportado();
+
+-- =====================================
+-- 5️⃣ FUNCION Y TRIGGER: MANTENER MV SINCRONIZADA
+-- =====================================
+-- Mantiene la materialized view actualizada automáticamente
+-- Soporta INSERT, UPDATE y DELETE en reportes
+CREATE OR REPLACE FUNCTION mantener_mv_busqueda_reportes()
+RETURNS trigger AS $$
+BEGIN
+  -- INSERT / UPDATE: agrega o actualiza la fila correspondiente
+  IF (TG_OP = 'INSERT' OR TG_OP = 'UPDATE') THEN
+    INSERT INTO mv_busqueda_reportes (
+        idReporte,
+        nombre_usuario,
+        numeroReportado,
+        categoriaReporte,
+        fechaReporte,
+        estatus
+    )
+    SELECT 
+        NEW.idReporte,
+        u.nombre AS nombre_usuario,
+        rep.numeroReportado,
+        NEW.categoriaReporte,
+        NEW.fechaReporte,
+        NEW.estatus
+    FROM usuarios u
+    LEFT JOIN reportados rep ON NEW.idNumero = rep.idNumero
+    WHERE u.idUsuario = NEW.idUsuario
+    ON CONFLICT (idReporte) DO UPDATE
+    SET 
+        nombre_usuario = EXCLUDED.nombre_usuario,
+        numeroReportado = EXCLUDED.numeroReportado,
+        categoriaReporte = EXCLUDED.categoriaReporte,
+        fechaReporte = EXCLUDED.fechaReporte,
+        estatus = EXCLUDED.estatus;
+
+  -- DELETE: elimina la fila correspondiente en la MV
+  ELSIF (TG_OP = 'DELETE') THEN
+    DELETE FROM mv_busqueda_reportes WHERE idReporte = OLD.idReporte;
+  END IF;
+
+  RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_mantener_mv_busqueda_reportes
+AFTER INSERT OR UPDATE OR DELETE
+ON reportes
+FOR EACH ROW
+EXECUTE FUNCTION mantener_mv_busqueda_reportes();

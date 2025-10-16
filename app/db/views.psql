@@ -1,0 +1,13 @@
+
+
+CREATE MATERIALIZED VIEW mv_busqueda_reportes AS
+SELECT 
+    r.idReporte,
+    u.nombre AS nombre_usuario,
+    rep.numeroReportado,
+    r.categoriaReporte,
+    r.fechaReporte,
+    r.estatus
+FROM reportes r
+LEFT JOIN usuarios u ON r.idUsuario = u.idUsuario
+LEFT JOIN reportados rep ON r.idNumero = rep.idNumero;

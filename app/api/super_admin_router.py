@@ -4,10 +4,15 @@ from fastapi import Depends
 
 router = APIRouter(prefix="/superadmin", tags=["Super Admin"])
 
+@router.get("/dashboard")
+def dashboard(usuario=Depends(requiere_superadmin)):
+    return {"esSuperAdmin": True}
+
 @router.post("/login")
 def login():
     
     return {"message": "Login Super Admin exitoso"}
+
 
 
 @router.post("/registrar_admin")

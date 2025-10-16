@@ -1,18 +1,3 @@
---DE AUTH CUANDO ES MAGIC LINK CON SUPABASE
-create or replace function handle_new_user()
-returns trigger as $$
-begin
-  insert into usuarios (idUsuario, correo, nombre, numeroTelefono)
-  values (new.id, new.email, '', '');
-  return new;
-end;
-$$ language plpgsql security definer;
-
-drop trigger if exists on_auth_user_created on auth.users;
-create trigger on_auth_user_created
-after insert on auth.users
-for each row execute function handle_new_user();
-
 --TRIGGER PARA ACTUALIZAR TOTAL REPORTES EN USUARIOS
 -- Función que actualiza el contador
 CREATE OR REPLACE FUNCTION upsert_veces_reportado()
@@ -32,13 +17,70 @@ FOR EACH ROW
 EXECUTE FUNCTION upsert_veces_reportado();
 
 
--- TRIGGER PARA BORRAR USUARIOS NO CONFIRMADOS DESPUÉS DE 3 DÍAS
-CREATE OR REPLACE FUNCTION borrar_usuarios_no_confirmados() RETURNS void AS $$
+
+CREATE OR REPLACE FUNCTION mantener_mv_busqueda_reportes()
+RETURNS trigger AS $$
 BEGIN
-   DELETE FROM usuarios
-   WHERE emailConfirmado = false AND fechaCreacion < NOW() - INTERVAL '3 days';
+  -- 🟢 Si se inserta o actualiza un reporte
+  IF (TG_OP = 'INSERT' OR TG_OP = 'UPDATE') THEN
+    INSERT INTO mv_busqueda_reportes (
+        idReporte,
+        nombre_usuario,
+        numeroReportado,
+        categoriaReporte,
+        fechaReporte,
+        estatus
+    )
+    SELECT 
+        NEW.idReporte,
+        u.nombre AS nombre_usuario,
+        rep.numeroReportado,
+        NEW.categoriaReporte,
+        NEW.fechaReporte,
+        NEW.estatus
+    FROM usuarios u
+    LEFT JOIN reportados rep ON NEW.idNumero = rep.idNumero
+    WHERE u.idUsuario = NEW.idUsuario
+    ON CONFLICT (idReporte) DO UPDATE
+    SET 
+        nombre_usuario = EXCLUDED.nombre_usuario,
+        numeroReportado = EXCLUDED.numeroReportado,
+        categoriaReporte = EXCLUDED.categoriaReporte,
+        fechaReporte = EXCLUDED.fechaReporte,
+        estatus = EXCLUDED.estatus;
+  
+  -- 🔴 Si se elimina un reporte
+  ELSIF (TG_OP = 'DELETE') THEN
+    DELETE FROM mv_busqueda_reportes WHERE idReporte = OLD.idReporte;
+  END IF;
+
+  RETURN NULL;
 END;
 $$ LANGUAGE plpgsql;
 
--- Luego, puedes ejecutar esto cada día con un cron job de Supabase o un scheduler externo
-SELECT borrar_usuarios_no_confirmados();
+CREATE TRIGGER trg_mantener_mv_busqueda_reportes
+AFTER INSERT OR UPDATE OR DELETE
+ON reportes
+FOR EACH ROW
+EXECUTE FUNCTION mantener_mv_busqueda_reportes();
+
+-- =====================================
+-- Trigger para incrementar totalReportes
+-- =====================================
+
+-- 1️⃣ Crear la función del trigger
+CREATE OR REPLACE FUNCTION incrementar_total_reportes()
+RETURNS TRIGGER AS $$
+BEGIN
+    UPDATE usuarios
+    SET totalReportes = totalReportes + 1
+    WHERE idUsuario = NEW.idUsuario;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- 2️⃣ Crear el trigger que se dispara al insertar un reporte
+CREATE TRIGGER trigger_incrementar_total_reportes
+AFTER INSERT ON reportes
+FOR EACH ROW
+EXECUTE FUNCTION incrementar_total_reportes();
