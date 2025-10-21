@@ -15,8 +15,8 @@ class IncidenciaRepository:
     # ==============================
     async def crear_incidencia(self, datos_incidencia: dict):
         """Crea una nueva incidencia y maneja la lógica de inserción en tablas relacionadas.
-         Parámetros:
-            datos_incidencia (dict): Diccionario con los datos de la incidencia. Debe contener:
+            Parámetros:
+                datos_incidencia (dict): Diccionario con los datos de la incidencia. Debe contener:
                 - idUsuario (str): ID del usuario que reporta.
                 - numeroReportado (str): Número que se está reportando.
                 - categoriaReporte (str): Categoría del reporte.
@@ -31,9 +31,8 @@ class IncidenciaRepository:
                 - numeroTarjeta (str, opcional): Número de tarjeta si tipoDestino es 'tarjeta'.
                 - direccion (str, opcional): Dirección si tipoDestino es 'ubicacion'.
             Retorna:
-                dict: Diccionario con el mensaje de éxito y el ID del nuevo reporte.
-            
-            """
+                dict: Diccionario con el mensaje de éxito y el ID del nuevo reporte.    
+        """
         try:
             numero_reportado = datos_incidencia.get("numeroReportado")
 
@@ -164,6 +163,21 @@ class IncidenciaRepository:
 
 
     async def actualizar_incidencia(self, idReporte: str, datos_actualizados: dict):
+        """
+            Parametros:
+                idReporte (str): ID del reporte a actualizar.
+                datos_actualizados (dict): Diccionario con los campos a actualizar y sus nuevos valores.
+                debe contener solo los campos que se desean actualizar.
+                Puede incluir:
+                - categoriaReporte (str): Nueva categoría del reporte.
+                - descripcion (str): Nueva descripción del reporte.
+                - medioContacto (str): Nuevo medio de contacto.
+                - genero (str, opcional): Género del supuesto.
+                - supuestoNombre (str, opcional): Nombre del supuesto.
+                - supuestoTrabajo (str, opcional): Trabajo del supuesto.
+                - esVisible (bool, opcional): Si el reporte es visible públicamente. Default True.
+                - estatus (str, opcional): Estatus del reporte. Default 'pendiente'
+        """
         try:
             response = await self.cliente.table(self.tabla_incidencias).update(datos_actualizados).eq("idReporte", idReporte).execute()
             if response.data:

@@ -1,5 +1,5 @@
 import re
-import logging
+from utils import logger
 import uuid
 from fastapi import HTTPException, status
 from email_validator import validate_email, EmailNotValidError
@@ -52,6 +52,7 @@ class CuentaService:
 
             if not nuevo_admin:
                 raise HTTPException(
+                    logger.error("Error al crear el administrador en la base de datos"),
                     status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                     detail="Error al crear el administrador en la base de datos"
                 )
@@ -61,7 +62,7 @@ class CuentaService:
         except HTTPException:
             raise
         except Exception as e:
-            logging.exception("Error inesperado al registrar administrador")
+            logger.exception("Error inesperado al registrar administrador")
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail=f"Error interno del servidor: {e}"
@@ -74,6 +75,7 @@ class CuentaService:
                 uuid_obj = uuid.UUID(idAdmin)
             except ValueError:
                 raise HTTPException(
+                    logger.error("ID de administrador inválido, debe ser un UUID"),
                     status_code=status.HTTP_400_BAD_REQUEST,
                     detail="ID de administrador inválido, debe ser un UUID"
                 )
@@ -81,6 +83,7 @@ class CuentaService:
             eliminado = await self.db.eliminar_administrador(idAdmin)
             if not eliminado:
                 raise HTTPException(
+                    logger.error(f"No se encontró administrador con ID {idAdmin}"),
                     status_code=status.HTTP_404_NOT_FOUND,
                     detail=f"No se encontró administrador con ID {idAdmin}"
                 )
@@ -90,12 +93,27 @@ class CuentaService:
         except HTTPException:
             raise
         except Exception as e:
-            logging.exception("Error al eliminar administrador")
+            logger.exception("Error al eliminar administrador")
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail=f"Error interno del servidor: {e}"
             )
 
+    async def obtener_administradores(self, idAdmin: str):
+        try:
+            administrador = await self.db.obtener_administrador_por_id(idAdmin)
+            if not administrador:
+                raise HTTPException(
+                    logger.error(f"No se encontró administrador con ID {idAdmin}"),
+                    status_code=status.HTTP_404_NOT_FOUND,
+                    detail=f"No se encontró administrador con ID {idAdmin}"
+                )
+            return administrador
+        except HTTPException:
+            raise HTTPException(
+                status_code=status.HTTP_204_NO_CONTENT,
+                detail="No se encontraron administradores con este id"
+            )
     # ==============================
     # MÉTODOS DE USUARIOS
     # ==============================
@@ -137,7 +155,7 @@ class CuentaService:
         except HTTPException:
             raise
         except Exception as e:
-            logging.exception("Error inesperado al registrar usuario")
+            logger.exception("Error inesperado al registrar usuario")
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail=f"Error interno del servidor: {e}"
@@ -166,7 +184,7 @@ class CuentaService:
         except HTTPException:
             raise
         except Exception as e:
-            logging.exception("Error al eliminar usuario")
+            logger.exception("Error al eliminar usuario")
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail=f"Error interno del servidor: {e}"
@@ -240,7 +258,7 @@ class CuentaService:
         except HTTPException:
             raise
         except Exception as e:
-            logging.exception("Error en login")
+            logger.exception("Error en login")
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail=f"Error interno del servidor: {e}"

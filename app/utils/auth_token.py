@@ -31,6 +31,9 @@ async def validar_token(request: Request):
             status_code=status.HTTP_401_UNAUTHORIZED, detail="No se proporcionó token de autenticación")            
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        if payload.get("exp") < datetime.now(timezone.utc).timestamp():
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED, detail="Token de autenticación ha expirado")
         return {"id_usuario": payload["sub"], "nombre": payload["nombre"], "rol": payload["rol"]}
     
     except jwt.ExpiredSignatureError:
