@@ -1,8 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
-from app.services.cuenta_service import CuentaService
-from app.services import get_cuenta_service, CuentaService
-from models.incidencia_model import CrearIncidencia
-from models.user_model import UserSession
+from ..services.cuenta_service import CuentaService
+from ..services.dependencias import get_cuenta_service
+from app.models.cuenta_model import UserModel
 
 router = APIRouter(prefix="/usuarios", tags=["Usuarios"])
 
@@ -28,6 +27,6 @@ async def login(
     return {"message": "Login exitoso"}
 
 @router.post("/registrarse")
-async def registrarse(usuario: UserSession):
+async def registrarse(usuario: UserModel):
 
     return {"message": "Registro exitoso"}

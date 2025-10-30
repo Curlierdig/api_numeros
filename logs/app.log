@@ -1,0 +1,240 @@
+2025-10-23 12:42:57,430 [ERROR] [app_logger] Error de Supabase al obtener usuario por correo y teléfono: Could not query the database for the schema cache. Retrying.
+2025-10-23 12:42:57,431 [ERROR] [app_logger] Error en login
+2025-10-23 12:49:06,242 [ERROR] [app_logger] Error de Supabase al obtener usuario por correo y teléfono: Could not query the database for the schema cache. Retrying.
+2025-10-23 12:49:06,243 [ERROR] [app_logger] Error en login
+2025-10-23 12:54:11,099 [ERROR] [app_logger] Error al registrar usuario user@example.com: 400: El campo 'edad' es obligatorio
+2025-10-23 12:54:31,464 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-23 12:54:31,464 [ERROR] [app_logger] Error al registrar usuario user@example.com: 500: Error interno del servidor: 'telefono'
+2025-10-23 12:57:53,332 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-23 12:57:53,332 [ERROR] [app_logger] Error al registrar usuario user@example.com: 500: Error interno del servidor: expected string or bytes-like object, got 'int'
+2025-10-23 12:59:27,957 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-23 12:59:27,959 [ERROR] [app_logger] Error al registrar usuario user@example.com: 500: Error interno del servidor: expected string or bytes-like object, got 'int'
+2025-10-30 10:47:40,299 [ERROR] [app_logger] Error de Supabase al verificar existencia de usuario por teléfono (6141320311): Could not query the database for the schema cache. Retrying.
+2025-10-30 11:05:09,694 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=id&numeroTelefono=eq.6141320311 "HTTP/2 503 Service Unavailable"
+2025-10-30 11:05:09,695 [ERROR] [app_logger] Error de Supabase al verificar existencia de usuario por teléfono (6141320311): Could not query the database for the schema cache. Retrying.
+2025-10-30 11:05:09,695 [ERROR] [app_logger] Error de Supabase al verificar existencia de usuario por teléfono (6141320311): Could not query the database for the schema cache. Retrying.
+2025-10-30 11:09:04,068 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=id&numeroTelefono=eq.6141320311 "HTTP/2 503 Service Unavailable"
+2025-10-30 11:09:04,069 [ERROR] [app_logger] Error de Supabase al verificar existencia de usuario por teléfono (6141320311): Could not query the database for the schema cache. Retrying.
+2025-10-30 11:09:04,069 [ERROR] [app_logger] Error de Supabase al verificar existencia de usuario por teléfono (6141320311): Could not query the database for the schema cache. Retrying.
+2025-10-30 11:13:44,318 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=id&numeroTelefono=eq.6141320311 "HTTP/2 503 Service Unavailable"
+2025-10-30 11:13:44,320 [ERROR] [app_logger] Error de Supabase al verificar existencia de usuario por teléfono (6141320311): Could not query the database for the schema cache. Retrying.
+2025-10-30 11:13:44,320 [ERROR] [app_logger] Error de Supabase al verificar existencia de usuario por teléfono (6141320311): Could not query the database for the schema cache. Retrying.
+2025-10-30 11:23:08,618 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=id&numerotelefono=eq.6141320311 "HTTP/2 400 Bad Request"
+2025-10-30 11:23:08,619 [ERROR] [app_logger] Error de Supabase al verificar existencia de usuario por teléfono (6141320311): column usuarios.id does not exist
+2025-10-30 11:23:08,619 [ERROR] [app_logger] Error de Supabase al verificar existencia de usuario por teléfono (6141320311): column usuarios.id does not exist
+2025-10-30 11:26:37,639 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=id&numerotelefono=eq.6141320311 "HTTP/2 400 Bad Request"
+2025-10-30 11:26:37,643 [ERROR] [app_logger] Error de Supabase al verificar existencia de usuario por teléfono (6141320311): column usuarios.id does not exist
+2025-10-30 11:26:37,643 [ERROR] [app_logger] Error de Supabase al verificar existencia de usuario por teléfono (6141320311): column usuarios.id does not exist
+2025-10-30 11:28:22,205 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320311 "HTTP/2 200 OK"
+2025-10-30 11:29:01,504 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320311 "HTTP/2 200 OK"
+2025-10-30 11:29:31,392 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320311 "HTTP/2 200 OK"
+2025-10-30 11:29:31,395 [INFO] [app_logger] No existe usuario con teléfono 6141320311
+2025-10-30 11:29:31,395 [INFO] [app_logger] No existe usuario con teléfono 6141320311
+2025-10-30 11:29:31,557 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 400 Bad Request"
+2025-10-30 11:29:31,558 [ERROR] [app_logger] Error de Supabase al crear usuario: Could not find the 'correo' column of 'usuarios' in the schema cache
+2025-10-30 11:29:31,558 [ERROR] [app_logger] Error de Supabase al crear usuario: Could not find the 'correo' column of 'usuarios' in the schema cache
+2025-10-30 11:29:31,559 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:29:31,559 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:34:48,871 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320311 "HTTP/2 200 OK"
+2025-10-30 11:34:48,875 [INFO] [app_logger] No existe usuario con teléfono 6141320311
+2025-10-30 11:34:48,875 [INFO] [app_logger] No existe usuario con teléfono 6141320311
+2025-10-30 11:34:48,875 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:34:48,875 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:37:16,731 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320311 "HTTP/2 200 OK"
+2025-10-30 11:37:16,734 [INFO] [app_logger] No existe usuario con teléfono 6141320311
+2025-10-30 11:37:16,734 [INFO] [app_logger] No existe usuario con teléfono 6141320311
+2025-10-30 11:37:16,892 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 400 Bad Request"
+2025-10-30 11:37:16,893 [ERROR] [app_logger] Error de Supabase al crear usuario: Could not find the 'entidadForanea' column of 'usuarios' in the schema cache
+2025-10-30 11:37:16,893 [ERROR] [app_logger] Error de Supabase al crear usuario: Could not find the 'entidadForanea' column of 'usuarios' in the schema cache
+2025-10-30 11:37:16,894 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:37:16,894 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:39:01,268 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320311 "HTTP/2 200 OK"
+2025-10-30 11:39:01,271 [INFO] [app_logger] No existe usuario con teléfono 6141320311
+2025-10-30 11:39:01,271 [INFO] [app_logger] No existe usuario con teléfono 6141320311
+2025-10-30 11:39:01,446 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 400 Bad Request"
+2025-10-30 11:39:01,447 [ERROR] [app_logger] Error de Supabase al crear usuario: Could not find the 'entidadForanea' column of 'usuarios' in the schema cache
+2025-10-30 11:39:01,447 [ERROR] [app_logger] Error de Supabase al crear usuario: Could not find the 'entidadForanea' column of 'usuarios' in the schema cache
+2025-10-30 11:39:01,447 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:39:01,447 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:39:27,784 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.string "HTTP/2 200 OK"
+2025-10-30 11:39:27,787 [INFO] [app_logger] No existe usuario con teléfono string
+2025-10-30 11:39:27,787 [INFO] [app_logger] No existe usuario con teléfono string
+2025-10-30 11:39:36,606 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.string "HTTP/2 200 OK"
+2025-10-30 11:39:36,608 [INFO] [app_logger] No existe usuario con teléfono string
+2025-10-30 11:39:36,608 [INFO] [app_logger] No existe usuario con teléfono string
+2025-10-30 11:39:49,057 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320311 "HTTP/2 200 OK"
+2025-10-30 11:39:49,059 [INFO] [app_logger] No existe usuario con teléfono 6141320311
+2025-10-30 11:39:49,059 [INFO] [app_logger] No existe usuario con teléfono 6141320311
+2025-10-30 11:39:49,190 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 400 Bad Request"
+2025-10-30 11:39:49,191 [ERROR] [app_logger] Error de Supabase al crear usuario: Could not find the 'idAdmin' column of 'usuarios' in the schema cache
+2025-10-30 11:39:49,191 [ERROR] [app_logger] Error de Supabase al crear usuario: Could not find the 'idAdmin' column of 'usuarios' in the schema cache
+2025-10-30 11:39:49,191 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:39:49,191 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:40:17,498 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320311 "HTTP/2 200 OK"
+2025-10-30 11:40:17,508 [INFO] [app_logger] No existe usuario con teléfono 6141320311
+2025-10-30 11:40:17,508 [INFO] [app_logger] No existe usuario con teléfono 6141320311
+2025-10-30 11:40:17,685 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 11:40:17,686 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:40:17,686 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:47:10,656 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320311 "HTTP/2 200 OK"
+2025-10-30 11:47:40,408 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320312 "HTTP/2 200 OK"
+2025-10-30 11:47:40,414 [INFO] [app_logger] No existe usuario con teléfono 6141320312
+2025-10-30 11:47:40,414 [INFO] [app_logger] No existe usuario con teléfono 6141320312
+2025-10-30 11:47:40,547 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 11:47:40,548 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:47:40,548 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:57:15,269 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320312 "HTTP/2 200 OK"
+2025-10-30 11:57:23,112 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320313 "HTTP/2 200 OK"
+2025-10-30 11:57:23,122 [INFO] [app_logger] No existe usuario con teléfono 6141320313
+2025-10-30 11:57:23,122 [INFO] [app_logger] No existe usuario con teléfono 6141320313
+2025-10-30 11:57:23,460 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 11:57:23,461 [ERROR] [app_logger] Error de Supabase al crear usuario: 'id'
+2025-10-30 11:57:23,461 [ERROR] [app_logger] Error de Supabase al crear usuario: 'id'
+2025-10-30 11:57:23,461 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:57:23,461 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:57:43,683 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320313 "HTTP/2 200 OK"
+2025-10-30 11:58:24,127 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320314 "HTTP/2 200 OK"
+2025-10-30 11:58:24,130 [INFO] [app_logger] No existe usuario con teléfono 6141320314
+2025-10-30 11:58:24,130 [INFO] [app_logger] No existe usuario con teléfono 6141320314
+2025-10-30 11:58:24,294 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 11:58:24,446 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/correos "HTTP/2 201 Created"
+2025-10-30 11:58:24,449 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:58:24,449 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:59:15,090 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320314 "HTTP/2 200 OK"
+2025-10-30 11:59:20,729 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320315 "HTTP/2 200 OK"
+2025-10-30 11:59:20,730 [INFO] [app_logger] No existe usuario con teléfono 6141320315
+2025-10-30 11:59:20,730 [INFO] [app_logger] No existe usuario con teléfono 6141320315
+2025-10-30 11:59:20,876 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 11:59:20,878 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 11:59:20,878 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 11:59:20,878 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 11:59:20,878 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:01:25,981 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320317 "HTTP/2 200 OK"
+2025-10-30 12:01:25,982 [INFO] [app_logger] No existe usuario con teléfono 6141320317
+2025-10-30 12:01:25,982 [INFO] [app_logger] No existe usuario con teléfono 6141320317
+2025-10-30 12:01:26,114 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 12:01:26,115 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:01:26,115 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:01:26,115 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:01:26,115 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:02:26,568 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320327 "HTTP/2 200 OK"
+2025-10-30 12:02:26,571 [INFO] [app_logger] No existe usuario con teléfono 6141320327
+2025-10-30 12:02:26,571 [INFO] [app_logger] No existe usuario con teléfono 6141320327
+2025-10-30 12:02:26,713 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 12:02:26,716 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:02:26,716 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:02:26,718 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:02:26,718 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:03:23,785 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320337 "HTTP/2 200 OK"
+2025-10-30 12:03:23,786 [INFO] [app_logger] No existe usuario con teléfono 6141320337
+2025-10-30 12:03:23,786 [INFO] [app_logger] No existe usuario con teléfono 6141320337
+2025-10-30 12:03:23,943 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 12:03:23,944 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:03:23,944 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:03:23,945 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:03:23,945 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:05:28,428 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320338 "HTTP/2 200 OK"
+2025-10-30 12:05:28,429 [INFO] [app_logger] No existe usuario con teléfono 6141320338
+2025-10-30 12:05:28,429 [INFO] [app_logger] No existe usuario con teléfono 6141320338
+2025-10-30 12:05:28,575 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 12:05:28,576 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:05:28,576 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:05:28,577 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:05:28,577 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:12:22,681 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320339 "HTTP/2 200 OK"
+2025-10-30 12:12:22,682 [INFO] [app_logger] No existe usuario con teléfono 6141320339
+2025-10-30 12:12:22,682 [INFO] [app_logger] No existe usuario con teléfono 6141320339
+2025-10-30 12:12:22,835 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 12:12:22,836 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:12:22,836 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:12:22,837 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:12:22,837 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:14:18,861 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320359 "HTTP/2 200 OK"
+2025-10-30 12:14:18,862 [INFO] [app_logger] No existe usuario con teléfono 6141320359
+2025-10-30 12:14:18,862 [INFO] [app_logger] No existe usuario con teléfono 6141320359
+2025-10-30 12:14:19,070 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 12:14:19,072 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:14:19,072 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:14:19,072 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:14:19,072 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:16:23,703 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320350 "HTTP/2 200 OK"
+2025-10-30 12:16:23,704 [INFO] [app_logger] No existe usuario con teléfono 6141320350
+2025-10-30 12:16:23,704 [INFO] [app_logger] No existe usuario con teléfono 6141320350
+2025-10-30 12:16:23,868 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 12:16:23,869 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:16:23,869 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:16:23,870 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:16:23,870 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:18:01,920 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320390 "HTTP/2 200 OK"
+2025-10-30 12:18:01,923 [INFO] [app_logger] No existe usuario con teléfono 6141320390
+2025-10-30 12:18:01,923 [INFO] [app_logger] No existe usuario con teléfono 6141320390
+2025-10-30 12:18:02,085 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 12:18:02,096 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:18:02,096 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:18:02,099 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:18:02,099 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:19:26,712 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320399 "HTTP/2 200 OK"
+2025-10-30 12:19:26,713 [INFO] [app_logger] No existe usuario con teléfono 6141320399
+2025-10-30 12:19:26,713 [INFO] [app_logger] No existe usuario con teléfono 6141320399
+2025-10-30 12:19:26,882 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 12:19:26,883 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:19:26,883 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:19:26,884 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:19:26,884 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:22:36,333 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320299 "HTTP/2 200 OK"
+2025-10-30 12:22:36,335 [INFO] [app_logger] No existe usuario con teléfono 6141320299
+2025-10-30 12:22:36,335 [INFO] [app_logger] No existe usuario con teléfono 6141320299
+2025-10-30 12:22:36,510 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 12:22:36,511 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:22:36,511 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:22:36,511 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:22:36,511 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:26:51,379 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320298 "HTTP/2 200 OK"
+2025-10-30 12:26:51,382 [INFO] [app_logger] No existe usuario con teléfono 6141320298
+2025-10-30 12:26:51,382 [INFO] [app_logger] No existe usuario con teléfono 6141320298
+2025-10-30 12:26:51,541 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 12:26:51,542 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:26:51,542 [ERROR] [app_logger] Error de Supabase al crear usuario: 0
+2025-10-30 12:26:51,543 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:26:51,543 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:28:47,231 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320598 "HTTP/2 200 OK"
+2025-10-30 12:28:47,234 [INFO] [app_logger] No existe usuario con teléfono 6141320598
+2025-10-30 12:28:47,234 [INFO] [app_logger] No existe usuario con teléfono 6141320598
+2025-10-30 12:28:47,370 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 12:28:47,523 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/correos "HTTP/2 201 Created"
+2025-10-30 12:28:47,524 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:28:47,524 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:35:13,653 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141320578 "HTTP/2 200 OK"
+2025-10-30 12:35:13,656 [INFO] [app_logger] No existe usuario con teléfono 6141320578
+2025-10-30 12:35:13,656 [INFO] [app_logger] No existe usuario con teléfono 6141320578
+2025-10-30 12:35:13,868 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 12:35:13,870 [INFO] [app_logger] Usuario creado con ID de4b3c94-47ce-4df9-8935-de610960aad3
+2025-10-30 12:35:13,870 [INFO] [app_logger] Usuario creado con ID de4b3c94-47ce-4df9-8935-de610960aad3
+2025-10-30 12:35:14,018 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/correos "HTTP/2 201 Created"
+2025-10-30 12:35:14,019 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:35:14,019 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:36:25,780 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6141420578 "HTTP/2 200 OK"
+2025-10-30 12:36:25,783 [INFO] [app_logger] No existe usuario con teléfono 6141420578
+2025-10-30 12:36:25,783 [INFO] [app_logger] No existe usuario con teléfono 6141420578
+2025-10-30 12:36:25,934 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 12:36:25,936 [INFO] [app_logger] Usuario creado con ID 44bcdf99-0a38-4749-869c-1535fc6250c8
+2025-10-30 12:36:25,936 [INFO] [app_logger] Usuario creado con ID 44bcdf99-0a38-4749-869c-1535fc6250c8
+2025-10-30 12:36:25,936 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:36:25,936 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:38:20,034 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6145420578 "HTTP/2 200 OK"
+2025-10-30 12:38:20,039 [INFO] [app_logger] No existe usuario con teléfono 6145420578
+2025-10-30 12:38:20,039 [INFO] [app_logger] No existe usuario con teléfono 6145420578
+2025-10-30 12:38:20,231 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 12:38:20,232 [INFO] [app_logger] Usuario creado con ID 3299a027-c0cf-496f-8296-18ce52acb9a2
+2025-10-30 12:38:20,232 [INFO] [app_logger] Usuario creado con ID 3299a027-c0cf-496f-8296-18ce52acb9a2
+2025-10-30 12:38:20,233 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:38:20,233 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-10-30 12:42:25,205 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario&numerotelefono=eq.6145420678 "HTTP/2 200 OK"
+2025-10-30 12:42:25,247 [INFO] [app_logger] No existe usuario con teléfono 6145420678
+2025-10-30 12:42:25,247 [INFO] [app_logger] No existe usuario con teléfono 6145420678
+2025-10-30 12:42:25,433 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios "HTTP/2 201 Created"
+2025-10-30 12:42:25,434 [INFO] [app_logger] Usuario creado con ID 338191c7-a70c-4cd2-aa07-387d5c41fed2
+2025-10-30 12:42:25,434 [INFO] [app_logger] Usuario creado con ID 338191c7-a70c-4cd2-aa07-387d5c41fed2
+2025-10-30 12:42:25,593 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/correos "HTTP/2 201 Created"
+2025-10-30 12:42:25,595 [INFO] [app_logger] Usuario uinsar@example.com registrado exitosamente.
+2025-10-30 12:42:25,595 [INFO] [app_logger] Usuario uinsar@example.com registrado exitosamente.

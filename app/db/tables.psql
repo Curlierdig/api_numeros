@@ -17,10 +17,10 @@ create table usuarios (
   idUsuario uuid primary key default gen_random_uuid(),
   idAdmin uuid references admin(idAdmin) on delete set null,
   nombre text not null,
-  edad int,
-  sexo text,
-  municipio text,
-  entidadForanea text, -- estado
+  edad int not null,
+  sexo text not null,
+  municipio text not null,
+  entidadForanea text not null, -- estado
   numeroTelefono text unique not null,
   totalReportes int default 0,
   fechaCreacion timestamp default now()

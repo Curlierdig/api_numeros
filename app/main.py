@@ -2,8 +2,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 # Importamos los routers
-from api import incidencias_router
-from app.api import user_router
+from app.api import user_router, auth_router, incidencias_router, super_admin_router, admin_router
 
 app = FastAPI(
     title="Sistema de Registro de Números de Extorsión",
@@ -22,7 +21,10 @@ app.add_middleware(
 
 # Incluir routers
 app.include_router(user_router.router) 
+app.include_router(auth_router.router)
 app.include_router(incidencias_router.router)
+app.include_router(super_admin_router.router)
+app.include_router(admin_router.router)
 
 # Endpoint raíz
 @app.get("/")

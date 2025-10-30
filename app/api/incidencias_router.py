@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from models.incidencia_model import CrearIncidencia
+from app.models.incidencia_model import CrearIncidencia
 from fastapi import Query
 
 

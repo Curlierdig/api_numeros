@@ -7,6 +7,7 @@ load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = os.getenv("ALGORITHM")
+MINUTES = 30 
 
 def crear_token_acceso(id: str, nombre: str = None, rol: str = "normal") -> dict:
     """
@@ -20,11 +21,14 @@ def crear_token_acceso(id: str, nombre: str = None, rol: str = "normal") -> dict
     payload = {"sub": id, 
                "nombre": nombre,
                "rol": rol,
-               "exp": datetime.now(timezone.utc) + (timedelta(minutes=30))
+               "exp": datetime.now(timezone.utc) + (timedelta(minutes=MINUTES))
     }
     return {"access_token": jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)}
 
 async def validar_token(request: Request):
+    """
+    Validar token de acceso JWT en la cookie 
+    """
     token = request.cookies.get("access_token") 
     if not token:
         raise HTTPException(
