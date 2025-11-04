@@ -240,7 +240,7 @@ class CuentaService:
             if rol == "normal":
                 usuario = await self.db.obtener_id_y_nombre_usuario_por_correo_y_telefono(correo, contrasena)
                 if usuario:
-                    token = crear_token_acceso(id=usuario[0]['id'], name=usuario[0]['nombre'], rol="normal")
+                    token = crear_token_acceso(id=usuario[0]['idusuario'], nombre=usuario[0]['nombre'], rol="normal")
                     return {"access_token": token, "rol": "normal"}
                 raise HTTPException(
                     status_code=status.HTTP_401_UNAUTHORIZED,

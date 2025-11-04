@@ -39,11 +39,17 @@ class CuentaRepository:
 
     async def obtener_id_y_nombre_usuario_por_correo_y_telefono(self, correo: str, telefono: str):
         try:
-            response = await self.cliente.table("usuarios").select("id, nombre").eq("correos.correo", correo).eq("numeroTelefono", telefono).execute()
-            if not response.data:
-                logger.warning(f"No se encontró usuario con correo {correo} y teléfono {telefono}")
+            correo_resp = await self.cliente.table("correos").select("idusuario").eq("correo", correo).execute()
+            if not correo_resp.data:
+                logger.warning(f"No se encontró correo {correo}")
                 return None
-            return response.data
+            usuario_id = correo_resp.data[0]["idusuario"]
+            usuario_resp = await self.cliente.table("usuarios").select("idusuario, nombre").eq("idusuario", usuario_id).eq("numerotelefono", telefono).execute()
+            if not usuario_resp.data:
+                logger.warning(f"No se encontró usuario con id {usuario_id} y teléfono {telefono}")
+                return None
+            return usuario_resp.data
+
         except Exception as e:
             logger.error(f"Error de Supabase al obtener usuario por correo y teléfono: {str(e)}")
             raise RuntimeError("Error al consultar usuario") from e

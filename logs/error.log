@@ -104,3 +104,35 @@
 2025-10-30 12:36:25,936 [ERROR] [app_logger] Error inesperado al registrar usuario
 2025-10-30 12:38:20,233 [ERROR] [app_logger] Error inesperado al registrar usuario
 2025-10-30 12:38:20,233 [ERROR] [app_logger] Error inesperado al registrar usuario
+2025-11-04 09:30:38,967 [ERROR] [app_logger] Error de Supabase al obtener usuario por correo y teléfono: {'code': 'PGRST108', 'details': None, 'hint': "Verify that 'correos' is included in the 'select' query parameter.", 'message': "'correos' is not an embedded resource in this request"}
+2025-11-04 09:30:38,967 [ERROR] [app_logger] Error de Supabase al obtener usuario por correo y teléfono: {'code': 'PGRST108', 'details': None, 'hint': "Verify that 'correos' is included in the 'select' query parameter.", 'message': "'correos' is not an embedded resource in this request"}
+2025-11-04 09:30:38,969 [ERROR] [app_logger] Error en login
+2025-11-04 09:30:38,969 [ERROR] [app_logger] Error en login
+2025-11-04 09:40:42,758 [ERROR] [app_logger] Error de Supabase al obtener usuario por correo y teléfono: {'code': '42703', 'details': None, 'hint': None, 'message': 'column usuarios.id does not exist'}
+2025-11-04 09:40:42,758 [ERROR] [app_logger] Error de Supabase al obtener usuario por correo y teléfono: {'code': '42703', 'details': None, 'hint': None, 'message': 'column usuarios.id does not exist'}
+2025-11-04 09:40:42,759 [ERROR] [app_logger] Error en login
+2025-11-04 09:40:42,759 [ERROR] [app_logger] Error en login
+2025-11-04 09:41:02,611 [ERROR] [app_logger] Error de Supabase al obtener usuario por correo y teléfono: {'code': '42703', 'details': None, 'hint': None, 'message': 'column correos.usuario_id does not exist'}
+2025-11-04 09:41:02,611 [ERROR] [app_logger] Error de Supabase al obtener usuario por correo y teléfono: {'code': '42703', 'details': None, 'hint': None, 'message': 'column correos.usuario_id does not exist'}
+2025-11-04 09:41:02,613 [ERROR] [app_logger] Error en login
+2025-11-04 09:41:02,613 [ERROR] [app_logger] Error en login
+2025-11-04 09:41:46,318 [ERROR] [app_logger] Error de Supabase al obtener usuario por correo y teléfono: {'code': '42703', 'details': None, 'hint': None, 'message': 'column correos.usuario_id does not exist'}
+2025-11-04 09:41:46,318 [ERROR] [app_logger] Error de Supabase al obtener usuario por correo y teléfono: {'code': '42703', 'details': None, 'hint': None, 'message': 'column correos.usuario_id does not exist'}
+2025-11-04 09:41:46,320 [ERROR] [app_logger] Error en login
+2025-11-04 09:41:46,320 [ERROR] [app_logger] Error en login
+2025-11-04 09:41:55,775 [ERROR] [app_logger] Error de Supabase al obtener usuario por correo y teléfono: {'code': '42703', 'details': None, 'hint': None, 'message': 'column usuarios.id does not exist'}
+2025-11-04 09:41:55,775 [ERROR] [app_logger] Error de Supabase al obtener usuario por correo y teléfono: {'code': '42703', 'details': None, 'hint': None, 'message': 'column usuarios.id does not exist'}
+2025-11-04 09:41:55,776 [ERROR] [app_logger] Error en login
+2025-11-04 09:41:55,776 [ERROR] [app_logger] Error en login
+2025-11-04 09:42:52,498 [ERROR] [app_logger] Error de Supabase al obtener usuario por correo y teléfono: {'code': '42703', 'details': None, 'hint': None, 'message': 'column usuarios.id does not exist'}
+2025-11-04 09:42:52,498 [ERROR] [app_logger] Error de Supabase al obtener usuario por correo y teléfono: {'code': '42703', 'details': None, 'hint': None, 'message': 'column usuarios.id does not exist'}
+2025-11-04 09:42:52,500 [ERROR] [app_logger] Error en login
+2025-11-04 09:42:52,500 [ERROR] [app_logger] Error en login
+2025-11-04 09:43:00,264 [ERROR] [app_logger] Error de Supabase al obtener usuario por correo y teléfono: {'code': '42703', 'details': None, 'hint': None, 'message': 'column usuarios.id does not exist'}
+2025-11-04 09:43:00,264 [ERROR] [app_logger] Error de Supabase al obtener usuario por correo y teléfono: {'code': '42703', 'details': None, 'hint': None, 'message': 'column usuarios.id does not exist'}
+2025-11-04 09:43:00,266 [ERROR] [app_logger] Error en login
+2025-11-04 09:43:00,266 [ERROR] [app_logger] Error en login
+2025-11-04 09:43:45,714 [ERROR] [app_logger] Error en login
+2025-11-04 09:43:45,714 [ERROR] [app_logger] Error en login
+2025-11-04 09:46:22,402 [ERROR] [app_logger] Error en login
+2025-11-04 09:46:22,402 [ERROR] [app_logger] Error en login

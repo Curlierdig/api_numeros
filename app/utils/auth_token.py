@@ -9,7 +9,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = os.getenv("ALGORITHM")
 MINUTES = 30 
 
-def crear_token_acceso(id: str, nombre: str = None, rol: str = "normal") -> dict:
+def crear_token_acceso(id: str, nombre: str = None, rol: str = "normal") -> str:
     """
     Crear token de acceso JWT
     parametros:
@@ -23,7 +23,7 @@ def crear_token_acceso(id: str, nombre: str = None, rol: str = "normal") -> dict
                "rol": rol,
                "exp": datetime.now(timezone.utc) + (timedelta(minutes=MINUTES))
     }
-    return {"access_token": jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)}
+    return jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
 
 async def validar_token(request: Request):
     """

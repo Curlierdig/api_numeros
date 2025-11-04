@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Form, Response
 from fastapi import Depends, HTTPException
 from app.models.cuenta_model import UserModel
-from app.services.dependencias import get_cuenta_service
+from app.services.instancias import get_cuenta_service
 from app.services.cuenta_service import CuentaService
 from app.utils.logger import logger
 
@@ -36,7 +36,6 @@ async def login(
             #secure=True,    # solo se envía por HTTPS
             samesite="none"  # protección CSRF
         )
-        return token
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
