@@ -5,7 +5,7 @@ class AdminModel(BaseModel):
     correo: EmailStr
     matricula: str
     contrasena: str
-    es_super: bool = False
+    essuper: bool = False
 
 class UserModel(BaseModel):
     idAdmin: str = "578e8639-3853-471b-aa0d-8dfbcbe879d7"  # ID del administrador WEB para registro automático del usuario
@@ -17,3 +17,4 @@ class UserModel(BaseModel):
     municipio: str
     entidadForanea: str
     totalreportes: int = 0
+    

@@ -53,3 +53,7 @@ def error(msg: str):
 def info(msg: str):
     """Registra un mensaje informativo usando el logger principal."""
     logger.info(msg)
+
+def warning(msg: str):
+    """Registra un mensaje de advertencia usando el logger principal."""
+    logger.warning(msg)

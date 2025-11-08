@@ -295,3 +295,611 @@
 2025-11-04 09:46:55,468 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario%2C%20nombre&idusuario=eq.9550e0c6-1b6f-4e84-ac66-0f9ceae88ac8&numerotelefono=eq.6141320311 "HTTP/2 200 OK"
 2025-11-04 09:49:19,242 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/correos?select=idusuario&correo=eq.user%40example.com "HTTP/2 200 OK"
 2025-11-04 09:49:19,612 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/usuarios?select=idusuario%2C%20nombre&idusuario=eq.9550e0c6-1b6f-4e84-ac66-0f9ceae88ac8&numerotelefono=eq.6141320311 "HTTP/2 200 OK"
+2025-11-04 10:07:01,257 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idAdmin%2C%20nombre%2C%20esSuper&correo=eq.abdelguti%40gmail.com&matricula=eq.0203040506&contrasena=eq.%242b%2412%24ZPhJWA1uwUjsKDAMofBtsuD1ODY2%2FPul4O5zdZf7%2FkKprSOUN9atW "HTTP/2 400 Bad Request"
+2025-11-04 10:07:01,260 [ERROR] [app_logger] Error de Supabase al obtener administrador por correo y matrícula: {'code': '42703', 'details': None, 'hint': 'Perhaps you meant to reference the column "administradores.idadmin".', 'message': 'column administradores.idAdmin does not exist'}
+2025-11-04 10:07:01,260 [ERROR] [app_logger] Error de Supabase al obtener administrador por correo y matrícula: {'code': '42703', 'details': None, 'hint': 'Perhaps you meant to reference the column "administradores.idadmin".', 'message': 'column administradores.idAdmin does not exist'}
+2025-11-04 10:07:01,261 [ERROR] [app_logger] Error en login
+2025-11-04 10:07:01,261 [ERROR] [app_logger] Error en login
+2025-11-04 10:08:40,943 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idAdmin%2C%20nombre%2C%20esSuper&correo=eq.abdelguti%40gmail.com&matricula=eq.0203040506&contrasena=eq.%242b%2412%24kNs8MTVQ7DhFs3nJRcmDO.65tLSoS51EMR.n3.FUaY1D8tVMbK7TO "HTTP/2 400 Bad Request"
+2025-11-04 10:08:41,177 [ERROR] [app_logger] Error de Supabase al obtener administrador por correo y matrícula: {'code': '42703', 'details': None, 'hint': 'Perhaps you meant to reference the column "administradores.idadmin".', 'message': 'column administradores.idAdmin does not exist'}
+2025-11-04 10:08:41,177 [ERROR] [app_logger] Error de Supabase al obtener administrador por correo y matrícula: {'code': '42703', 'details': None, 'hint': 'Perhaps you meant to reference the column "administradores.idadmin".', 'message': 'column administradores.idAdmin does not exist'}
+2025-11-04 10:08:41,179 [ERROR] [app_logger] Error en login
+2025-11-04 10:08:41,179 [ERROR] [app_logger] Error en login
+2025-11-04 10:08:50,094 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.abdelguti%40gmail.com&matricula=eq.0203040506&contrasena=eq.%242b%2412%242HR.U1crS4nSPesAVTlWWuwBMlFHoXJS%2F5UMh3f6fr70DnSUySACy "HTTP/2 200 OK"
+2025-11-04 10:08:50,107 [ERROR] [app_logger] Error de Supabase al obtener administrador por correo y matrícula: module 'app.utils.logger' has no attribute 'warning'
+2025-11-04 10:08:50,107 [ERROR] [app_logger] Error de Supabase al obtener administrador por correo y matrícula: module 'app.utils.logger' has no attribute 'warning'
+2025-11-04 10:08:50,108 [ERROR] [app_logger] Error en login
+2025-11-04 10:08:50,108 [ERROR] [app_logger] Error en login
+2025-11-04 10:09:27,763 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.abdelguti%40gmail.com&matricula=eq.0203040506&contrasena=eq.%242b%2412%24BvrvnshFz9s1tgE3o7Lgs.YmfFGpTjzqamvSGvw9xpQMX0ULJZMLq "HTTP/2 200 OK"
+2025-11-04 10:09:27,775 [WARNING] [app_logger] No se encontró administrador con correo abdelguti@gmail.com y matrícula 0203040506
+2025-11-04 10:09:27,775 [WARNING] [app_logger] No se encontró administrador con correo abdelguti@gmail.com y matrícula 0203040506
+2025-11-04 10:10:50,417 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.abdelguti%40gmail.com&matricula=eq.0203040506&contrasena=eq.%242b%2412%24aMCEJaJ9kNCJ6neHjfgYd.mI5hl97C.kcYyA0CDlGknZiM8y2TYGy "HTTP/2 200 OK"
+2025-11-04 10:10:50,432 [WARNING] [app_logger] no info []
+2025-11-04 10:10:50,432 [WARNING] [app_logger] no info []
+2025-11-04 10:10:50,433 [WARNING] [app_logger] No se encontró administrador con correo abdelguti@gmail.com y matrícula 0203040506
+2025-11-04 10:10:50,433 [WARNING] [app_logger] No se encontró administrador con correo abdelguti@gmail.com y matrícula 0203040506
+2025-11-04 10:12:13,771 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.abdelguti%40gmail.com&matricula=eq.0203040506&contrasena=eq.%242b%2412%24J4xLDtR3bsjbsp2TjZ%2FFcuMmocloU3v..y88lz6CmoEDlZ8FNLFY. "HTTP/2 200 OK"
+2025-11-04 10:12:13,786 [WARNING] [app_logger] no info data=[] count=None
+2025-11-04 10:12:13,786 [WARNING] [app_logger] no info data=[] count=None
+2025-11-04 10:12:13,787 [WARNING] [app_logger] No se encontró administrador con correo abdelguti@gmail.com y matrícula 0203040506
+2025-11-04 10:12:13,787 [WARNING] [app_logger] No se encontró administrador con correo abdelguti@gmail.com y matrícula 0203040506
+2025-11-04 10:18:25,392 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.abdelguti%40gmail.com&matricula=eq.0203040506&contrasena=eq.%242b%2412%24wOXU6dhbMVhFwpiVL0vazunnuXDGk6UoxokStLzOMmZUjG0kcJ7xm "HTTP/2 200 OK"
+2025-11-04 10:18:25,408 [WARNING] [app_logger] no info data=[] count=None
+2025-11-04 10:18:25,408 [WARNING] [app_logger] no info data=[] count=None
+2025-11-04 10:18:25,409 [WARNING] [app_logger] No se encontró administrador con correo abdelguti@gmail.com y matrícula 0203040506
+2025-11-04 10:18:25,409 [WARNING] [app_logger] No se encontró administrador con correo abdelguti@gmail.com y matrícula 0203040506
+2025-11-04 10:19:16,182 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.abdelguti%40gmail.com&matricula=eq.0203040506&contrasena=eq.%242b%2412%24hzOBqXwuoJ%2Fq2uuxEadJmOjpC8O98R2D4j.Z0DdNVCRjvBBde4PWW "HTTP/2 200 OK"
+2025-11-04 10:19:16,195 [WARNING] [app_logger] no info data=[] count=None
+2025-11-04 10:19:16,195 [WARNING] [app_logger] no info data=[] count=None
+2025-11-04 10:19:16,196 [WARNING] [app_logger] No se encontró administrador con correo abdelguti@gmail.com y matrícula 0203040506
+2025-11-04 10:19:16,196 [WARNING] [app_logger] No se encontró administrador con correo abdelguti@gmail.com y matrícula 0203040506
+2025-11-04 10:20:10,101 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.abdelguti%40gmail.com&matricula=eq.0203040506&contrasena=eq.%242b%2412%24Zot79rIVptjWpvIP3DZDVungF0WXT0NYlmLu8se9VQh7OoUASd3%2Fy "HTTP/2 200 OK"
+2025-11-04 10:20:10,114 [WARNING] [app_logger] no info data=[] count=None
+2025-11-04 10:20:10,114 [WARNING] [app_logger] no info data=[] count=None
+2025-11-04 10:20:10,115 [WARNING] [app_logger] No se encontró administrador con correo abdelguti@gmail.com y matrícula 0203040506
+2025-11-04 10:20:10,115 [WARNING] [app_logger] No se encontró administrador con correo abdelguti@gmail.com y matrícula 0203040506
+2025-11-04 10:20:46,329 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.abdelguti%40gmail.com&matricula=eq.0203040506&contrasena=eq.%242b%2412%24Lk3jmWxwd%2FgH9h7kxsVzjOYrebfSvpyGt3gEGqkuoMJbSV5x97CKG "HTTP/2 200 OK"
+2025-11-04 10:20:46,334 [WARNING] [app_logger] no info data=[] count=None
+2025-11-04 10:20:46,334 [WARNING] [app_logger] no info data=[] count=None
+2025-11-04 10:20:46,335 [WARNING] [app_logger] No se encontró administrador con correo abdelguti@gmail.com y matrícula 0203040506
+2025-11-04 10:20:46,335 [WARNING] [app_logger] No se encontró administrador con correo abdelguti@gmail.com y matrícula 0203040506
+2025-11-04 10:29:40,107 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.0203040506 "HTTP/2 200 OK"
+2025-11-04 10:31:04,728 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.0203040506 "HTTP/2 200 OK"
+2025-11-04 10:31:16,847 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.0203040506 "HTTP/2 200 OK"
+2025-11-04 11:48:44,841 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.abdelguti%40gmail.com&matricula=eq.0203040506 "HTTP/2 200 OK"
+2025-11-04 11:48:44,852 [ERROR] [app_logger] Error en login
+2025-11-04 11:48:44,852 [ERROR] [app_logger] Error en login
+2025-11-04 11:49:23,079 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.abdelguti%40gmail.com&matricula=eq.0203040506 "HTTP/2 200 OK"
+2025-11-04 11:49:23,082 [ERROR] [app_logger] Error en login
+2025-11-04 11:49:23,082 [ERROR] [app_logger] Error en login
+2025-11-04 11:49:37,372 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.abdelguti%40gmail.com&matricula=eq.0203040506 "HTTP/2 200 OK"
+2025-11-04 11:49:37,376 [INFO] [app_logger] Usuario abdelguti@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzODAwODQwNS0wMGFjLTRlZjYtYWM2Yy01ZWZjOTg3Y2E3YzMiLCJub21icmUiOiJKRVNVUyIsInJvbCI6InN1cGVyYWRtaW4iLCJleHAiOjE3NjIyODAzNzd9.LQK81ZIEMh1NgFVCE4qVovAwsNiCjypWH7L9UsmYh68', 'rol': 'superadmin'}
+2025-11-04 11:49:37,376 [INFO] [app_logger] Usuario abdelguti@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzODAwODQwNS0wMGFjLTRlZjYtYWM2Yy01ZWZjOTg3Y2E3YzMiLCJub21icmUiOiJKRVNVUyIsInJvbCI6InN1cGVyYWRtaW4iLCJleHAiOjE3NjIyODAzNzd9.LQK81ZIEMh1NgFVCE4qVovAwsNiCjypWH7L9UsmYh68', 'rol': 'superadmin'}
+2025-11-04 11:56:36,643 [INFO] [app_logger] Validando token: None
+2025-11-04 11:56:36,643 [INFO] [app_logger] Validando token: None
+2025-11-04 12:11:37,974 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores "HTTP/2 400 Bad Request"
+2025-11-04 12:11:37,975 [ERROR] [app_logger] Error de Supabase al crear administrador: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'es_super' column of 'administradores' in the schema cache"}
+2025-11-04 12:11:37,975 [ERROR] [app_logger] Error de Supabase al crear administrador: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'es_super' column of 'administradores' in the schema cache"}
+2025-11-04 12:11:37,975 [ERROR] [app_logger] Error inesperado al registrar administrador
+2025-11-04 12:11:37,975 [ERROR] [app_logger] Error inesperado al registrar administrador
+2025-11-04 12:12:14,650 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores "HTTP/2 201 Created"
+2025-11-04 12:12:14,654 [INFO] [app_logger] Administrador omar@gmail.com registrado exitosamente.
+2025-11-04 12:12:14,654 [INFO] [app_logger] Administrador omar@gmail.com registrado exitosamente.
+2025-11-04 12:14:06,334 [INFO] [app_logger] Validando token: None
+2025-11-04 12:14:06,334 [INFO] [app_logger] Validando token: None
+2025-11-04 12:25:45,427 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:25:56,481 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:26:05,417 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:27:21,912 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:27:39,590 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:27:39,593 [WARNING] [app_logger] None
+2025-11-04 12:27:39,593 [WARNING] [app_logger] None
+2025-11-04 12:30:40,100 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:30:40,104 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:30:40,104 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:30:40,105 [WARNING] [app_logger] None
+2025-11-04 12:30:40,105 [WARNING] [app_logger] None
+2025-11-04 12:32:19,967 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:32:19,969 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:32:19,969 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:32:19,970 [WARNING] [app_logger] None
+2025-11-04 12:32:19,970 [WARNING] [app_logger] None
+2025-11-04 12:32:31,894 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:32:31,897 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:32:31,897 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:32:31,897 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:32:31,897 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:32:31,898 [WARNING] [app_logger] None
+2025-11-04 12:32:31,898 [WARNING] [app_logger] None
+2025-11-04 12:33:50,940 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:33:50,950 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:33:50,950 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:33:50,951 [INFO] [app_logger] Respuesta de Supabase: dataaa=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:33:50,951 [INFO] [app_logger] Respuesta de Supabase: dataaa=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:33:50,952 [WARNING] [app_logger] None
+2025-11-04 12:33:50,952 [WARNING] [app_logger] None
+2025-11-04 12:34:49,294 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:34:49,302 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:34:49,302 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:34:49,303 [INFO] [app_logger] Respuesta de Supabase: dataaa=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:34:49,303 [INFO] [app_logger] Respuesta de Supabase: dataaa=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:34:49,304 [WARNING] [app_logger] None
+2025-11-04 12:34:49,304 [WARNING] [app_logger] None
+2025-11-04 12:35:44,473 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:35:44,475 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:35:44,475 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:35:44,475 [INFO] [app_logger] Respuesta de Supabase: dataaa=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:35:44,475 [INFO] [app_logger] Respuesta de Supabase: dataaa=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:35:44,476 [WARNING] [app_logger] None
+2025-11-04 12:35:44,476 [WARNING] [app_logger] None
+2025-11-04 12:35:50,992 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:35:50,995 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:35:50,995 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:35:50,995 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-04 12:35:50,995 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-04 12:35:50,996 [WARNING] [app_logger] None
+2025-11-04 12:35:50,996 [WARNING] [app_logger] None
+2025-11-04 12:37:14,698 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:37:14,700 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:37:14,700 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:37:14,701 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-04 12:37:14,701 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-04 12:37:14,701 [WARNING] [app_logger] None
+2025-11-04 12:37:14,701 [WARNING] [app_logger] None
+2025-11-04 12:37:21,079 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:37:21,082 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:37:21,082 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:37:21,082 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-04 12:37:21,082 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-04 12:37:21,082 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-04 12:37:21,082 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-04 12:37:21,576 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:37:21,577 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjI4MzI0MX0.njDQg5mM1vM1opWeGpkTAycEEy7JOgjJqu54JYZ35N4', 'rol': 'superadmin'}
+2025-11-04 12:37:21,577 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjI4MzI0MX0.njDQg5mM1vM1opWeGpkTAycEEy7JOgjJqu54JYZ35N4', 'rol': 'superadmin'}
+2025-11-04 12:37:41,038 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:37:41,040 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:37:41,040 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:37:41,040 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-04 12:37:41,040 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-04 12:37:41,041 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-04 12:37:41,041 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-04 12:37:41,452 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:37:41,453 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjI4MzI2MX0.plkHm0mma4dunVQXgpfd2rGaLVb4dNKt-OBmoI-l0ZU', 'rol': 'superadmin'}
+2025-11-04 12:37:41,453 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjI4MzI2MX0.plkHm0mma4dunVQXgpfd2rGaLVb4dNKt-OBmoI-l0ZU', 'rol': 'superadmin'}
+2025-11-04 12:38:06,376 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:38:06,378 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:38:06,378 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:38:06,378 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-04 12:38:06,378 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-04 12:38:06,379 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-04 12:38:06,379 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-04 12:38:06,788 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:38:06,790 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjI4MzI4Nn0.oCDCcd2bHnyPDw2zbNCw-b7MPk6WmZC1KJDxAyvINFY', 'rol': 'superadmin'}
+2025-11-04 12:38:06,790 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjI4MzI4Nn0.oCDCcd2bHnyPDw2zbNCw-b7MPk6WmZC1KJDxAyvINFY', 'rol': 'superadmin'}
+2025-11-04 12:42:04,304 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:42:04,306 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:42:04,306 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-04 12:42:04,306 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-04 12:42:04,306 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-04 12:42:04,307 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-04 12:42:04,307 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-04 12:42:04,717 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-04 12:42:04,718 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjI4MzUyNH0.jKpfrRie6RqBH_f3oW4TJOzwtYlg0gmFLmtrqDnBQ-8', 'rol': 'superadmin'}
+2025-11-04 12:42:04,718 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjI4MzUyNH0.jKpfrRie6RqBH_f3oW4TJOzwtYlg0gmFLmtrqDnBQ-8', 'rol': 'superadmin'}
+2025-11-06 09:36:34,501 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 09:36:34,514 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 09:36:34,514 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 09:36:34,515 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 09:36:34,515 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 09:36:34,518 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 09:36:34,518 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 09:36:35,019 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 09:36:35,022 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NTE5NX0.yZpDwIzzOYI8vbytX2tnCR8ojz8le6MmLhnDqXhbd-g', 'rol': 'superadmin'}
+2025-11-06 09:36:35,022 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NTE5NX0.yZpDwIzzOYI8vbytX2tnCR8ojz8le6MmLhnDqXhbd-g', 'rol': 'superadmin'}
+2025-11-06 09:53:25,938 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 09:53:25,944 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 09:53:25,944 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 09:53:25,944 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 09:53:25,944 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 09:53:25,945 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 09:53:25,945 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 09:53:26,588 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 09:53:26,593 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NjIwNn0.PIJUbezkGiQ0u3NUgPNrRISn-b_IEpdDaSKB7i6xpfs', 'rol': 'superadmin'}
+2025-11-06 09:53:26,593 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NjIwNn0.PIJUbezkGiQ0u3NUgPNrRISn-b_IEpdDaSKB7i6xpfs', 'rol': 'superadmin'}
+2025-11-06 09:56:18,362 [INFO] [app_logger] Validando token: None
+2025-11-06 09:56:18,362 [INFO] [app_logger] Validando token: None
+2025-11-06 09:57:57,342 [INFO] [app_logger] Validando token: None
+2025-11-06 09:57:57,342 [INFO] [app_logger] Validando token: None
+2025-11-06 09:58:05,117 [INFO] [app_logger] Validando token: None
+2025-11-06 09:58:05,117 [INFO] [app_logger] Validando token: None
+2025-11-06 09:58:22,377 [INFO] [app_logger] Validando token: None
+2025-11-06 09:58:22,377 [INFO] [app_logger] Validando token: None
+2025-11-06 09:58:30,927 [INFO] [app_logger] Validando token: None, rol: None
+2025-11-06 09:58:30,927 [INFO] [app_logger] Validando token: None, rol: None
+2025-11-06 10:12:01,658 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:01,670 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:01,670 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:01,671 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:01,671 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:01,672 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:01,672 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:02,278 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:02,282 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzMyMn0.eW14YeYzV25_NxHGiMZrJLsDML6UsxCNsh8KRygH-NA', 'rol': 'superadmin'}
+2025-11-06 10:12:02,282 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzMyMn0.eW14YeYzV25_NxHGiMZrJLsDML6UsxCNsh8KRygH-NA', 'rol': 'superadmin'}
+2025-11-06 10:12:08,658 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:08,660 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:08,660 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:08,661 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:08,661 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:08,662 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:08,662 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:09,143 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:09,145 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzMyOX0.MN5u9odeiFmBa3zqRGfiZCby5dUQqBGSekNq-HeOqRA', 'rol': 'superadmin'}
+2025-11-06 10:12:09,145 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzMyOX0.MN5u9odeiFmBa3zqRGfiZCby5dUQqBGSekNq-HeOqRA', 'rol': 'superadmin'}
+2025-11-06 10:12:19,577 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:19,580 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:19,580 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:19,581 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:19,581 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:19,582 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:19,582 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:20,329 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:20,333 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzM0MH0._N8LjRun3HyHVYd4FkpXhg8FB2HLKWZkpPwK71e_6D0', 'rol': 'superadmin'}
+2025-11-06 10:12:20,333 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzM0MH0._N8LjRun3HyHVYd4FkpXhg8FB2HLKWZkpPwK71e_6D0', 'rol': 'superadmin'}
+2025-11-06 10:12:39,100 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:39,106 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:39,106 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:39,107 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:39,107 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:39,108 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:39,108 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:40,367 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:40,381 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:40,383 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:40,386 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:40,390 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:40,390 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:40,392 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:40,392 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:40,394 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:40,394 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:40,752 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzM2MH0.sOhAffhglL6SIqHwF5ZcmuZzkK3UOqFrR6tkJxgq_Wk', 'rol': 'superadmin'}
+2025-11-06 10:12:40,752 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzM2MH0.sOhAffhglL6SIqHwF5ZcmuZzkK3UOqFrR6tkJxgq_Wk', 'rol': 'superadmin'}
+2025-11-06 10:12:40,754 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:40,754 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:40,755 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:40,755 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:40,756 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:40,756 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:41,180 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:41,180 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:41,181 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:41,181 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:41,182 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:41,182 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:41,474 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:41,475 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:42,175 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:42,175 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:42,176 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:42,176 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:42,177 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:42,177 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:42,584 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:42,584 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:42,585 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:42,585 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:42,585 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:42,585 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:42,925 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:42,930 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:42,932 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzM2Mn0.ZoED3YsvrhtcSiR1HcvQUl-MWjrE5-YGfpjm5aRuXpY', 'rol': 'superadmin'}
+2025-11-06 10:12:42,932 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzM2Mn0.ZoED3YsvrhtcSiR1HcvQUl-MWjrE5-YGfpjm5aRuXpY', 'rol': 'superadmin'}
+2025-11-06 10:12:42,935 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzM2Mn0.ZoED3YsvrhtcSiR1HcvQUl-MWjrE5-YGfpjm5aRuXpY', 'rol': 'superadmin'}
+2025-11-06 10:12:42,935 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzM2Mn0.ZoED3YsvrhtcSiR1HcvQUl-MWjrE5-YGfpjm5aRuXpY', 'rol': 'superadmin'}
+2025-11-06 10:12:43,263 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:43,319 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzM2M30.q7qDZW81Eh7Rt4trXcD7bDkZ_TQTJatjGKxvBzvvasE', 'rol': 'superadmin'}
+2025-11-06 10:12:43,319 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzM2M30.q7qDZW81Eh7Rt4trXcD7bDkZ_TQTJatjGKxvBzvvasE', 'rol': 'superadmin'}
+2025-11-06 10:12:43,400 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:43,405 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:43,409 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzM2M30.q7qDZW81Eh7Rt4trXcD7bDkZ_TQTJatjGKxvBzvvasE', 'rol': 'superadmin'}
+2025-11-06 10:12:43,409 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzM2M30.q7qDZW81Eh7Rt4trXcD7bDkZ_TQTJatjGKxvBzvvasE', 'rol': 'superadmin'}
+2025-11-06 10:12:43,414 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzM2M30.q7qDZW81Eh7Rt4trXcD7bDkZ_TQTJatjGKxvBzvvasE', 'rol': 'superadmin'}
+2025-11-06 10:12:43,414 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzM2M30.q7qDZW81Eh7Rt4trXcD7bDkZ_TQTJatjGKxvBzvvasE', 'rol': 'superadmin'}
+2025-11-06 10:12:44,153 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:44,156 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:44,156 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:12:44,157 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:44,157 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:12:44,158 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:44,158 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:12:44,701 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:12:44,704 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzM2NH0.KyCOpEODc2jftMxot8SHjJ4iGJuBdVQLMNAAR3hMtzc', 'rol': 'superadmin'}
+2025-11-06 10:12:44,704 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzM2NH0.KyCOpEODc2jftMxot8SHjJ4iGJuBdVQLMNAAR3hMtzc', 'rol': 'superadmin'}
+2025-11-06 10:14:06,894 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:14:06,904 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:14:06,904 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:14:06,907 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:14:06,907 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:14:06,908 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:14:06,908 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:14:07,455 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:14:07,459 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzQ0N30.kg6CAU2sGHvqX_b78i6mjFa8kGxqrRkrIOPxqiTrmXI', 'rol': 'superadmin'}
+2025-11-06 10:14:07,459 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzQ0N30.kg6CAU2sGHvqX_b78i6mjFa8kGxqrRkrIOPxqiTrmXI', 'rol': 'superadmin'}
+2025-11-06 10:14:57,918 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:14:57,921 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:14:57,921 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:14:57,922 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:14:57,922 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:14:57,923 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:14:57,923 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:14:58,837 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:14:58,841 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzQ5OH0.R9t6UAaHXJhZTZBZeakvnPQpBr2c3V5apTAg3DwGAjM', 'rol': 'superadmin'}
+2025-11-06 10:14:58,841 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzQ5OH0.R9t6UAaHXJhZTZBZeakvnPQpBr2c3V5apTAg3DwGAjM', 'rol': 'superadmin'}
+2025-11-06 10:15:53,983 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:15:53,985 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:15:53,985 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:15:53,986 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:15:53,986 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:15:53,987 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:15:53,987 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:15:54,288 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:15:54,294 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:15:54,294 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:15:54,295 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:15:54,295 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:15:54,295 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:15:54,295 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:15:54,621 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:15:54,623 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzU1NH0.NszN_zRefvjfTUa7UZ5BuUndQkDcAlysM540e-Z8vY4', 'rol': 'superadmin'}
+2025-11-06 10:15:54,623 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzU1NH0.NszN_zRefvjfTUa7UZ5BuUndQkDcAlysM540e-Z8vY4', 'rol': 'superadmin'}
+2025-11-06 10:15:54,755 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:15:54,758 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzU1NH0.NszN_zRefvjfTUa7UZ5BuUndQkDcAlysM540e-Z8vY4', 'rol': 'superadmin'}
+2025-11-06 10:15:54,758 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzU1NH0.NszN_zRefvjfTUa7UZ5BuUndQkDcAlysM540e-Z8vY4', 'rol': 'superadmin'}
+2025-11-06 10:16:05,841 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:16:05,852 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:16:05,852 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:16:05,853 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:16:05,853 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:16:05,854 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:16:05,854 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:16:06,808 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:16:06,812 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzU2Nn0.j4rZBdqbOiqJzbJhn5jKtz_iJd554OWHu8GXF36_26Y', 'rol': 'superadmin'}
+2025-11-06 10:16:06,812 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzU2Nn0.j4rZBdqbOiqJzbJhn5jKtz_iJd554OWHu8GXF36_26Y', 'rol': 'superadmin'}
+2025-11-06 10:17:01,059 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:17:01,062 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:17:01,062 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:17:01,064 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:17:01,064 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:17:01,066 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:17:01,066 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:17:02,079 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:17:02,083 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzYyMn0._-E2tTGyaLAlX69SennwqpRB_29yy9RuoXMAnrIwKs4', 'rol': 'superadmin'}
+2025-11-06 10:17:02,083 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0NzYyMn0._-E2tTGyaLAlX69SennwqpRB_29yy9RuoXMAnrIwKs4', 'rol': 'superadmin'}
+2025-11-06 10:19:11,518 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:19:11,531 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:19:11,531 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:19:11,533 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:19:11,533 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:19:11,535 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:19:11,535 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:19:12,059 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:19:12,063 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0Nzc1Mn0.7mU1Lu8Hy9v7eHFFtGhNCLuMRneUUHsXaiXkHcWqJCQ', 'rol': 'superadmin'}
+2025-11-06 10:19:12,063 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0Nzc1Mn0.7mU1Lu8Hy9v7eHFFtGhNCLuMRneUUHsXaiXkHcWqJCQ', 'rol': 'superadmin'}
+2025-11-06 10:21:14,867 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:21:14,869 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:21:14,871 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:21:14,880 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:21:14,880 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:21:14,882 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:21:14,882 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:21:14,883 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:21:14,883 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:21:15,672 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:21:15,672 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:21:15,673 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:21:15,673 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:21:15,674 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:21:15,674 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:21:16,577 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:21:16,577 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:21:16,578 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:21:16,578 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:21:16,579 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:21:16,579 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:21:17,510 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:21:17,512 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:21:17,515 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:21:17,538 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:21:17,538 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:21:17,539 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:21:17,539 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:21:17,539 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:21:17,539 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:21:18,421 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:21:18,421 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:21:18,422 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:21:18,422 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:21:18,423 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:21:18,423 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:21:19,326 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:21:19,326 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:21:19,328 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:21:19,328 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:21:19,329 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:21:19,329 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:21:20,247 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:21:20,250 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:21:20,252 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:21:20,266 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0Nzg4MH0.ZZThG8FjEYK76av_QDYbP3WKlTAoM3PIN3-jKGeFf_s', 'rol': 'superadmin'}
+2025-11-06 10:21:20,266 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0Nzg4MH0.ZZThG8FjEYK76av_QDYbP3WKlTAoM3PIN3-jKGeFf_s', 'rol': 'superadmin'}
+2025-11-06 10:21:20,272 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0Nzg4MH0.ZZThG8FjEYK76av_QDYbP3WKlTAoM3PIN3-jKGeFf_s', 'rol': 'superadmin'}
+2025-11-06 10:21:20,272 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0Nzg4MH0.ZZThG8FjEYK76av_QDYbP3WKlTAoM3PIN3-jKGeFf_s', 'rol': 'superadmin'}
+2025-11-06 10:21:20,275 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0Nzg4MH0.ZZThG8FjEYK76av_QDYbP3WKlTAoM3PIN3-jKGeFf_s', 'rol': 'superadmin'}
+2025-11-06 10:21:20,275 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0Nzg4MH0.ZZThG8FjEYK76av_QDYbP3WKlTAoM3PIN3-jKGeFf_s', 'rol': 'superadmin'}
+2025-11-06 10:21:20,619 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:21:20,628 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:21:20,630 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:21:20,632 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0Nzg4MH0.ZZThG8FjEYK76av_QDYbP3WKlTAoM3PIN3-jKGeFf_s', 'rol': 'superadmin'}
+2025-11-06 10:21:20,632 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0Nzg4MH0.ZZThG8FjEYK76av_QDYbP3WKlTAoM3PIN3-jKGeFf_s', 'rol': 'superadmin'}
+2025-11-06 10:21:20,635 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0Nzg4MH0.ZZThG8FjEYK76av_QDYbP3WKlTAoM3PIN3-jKGeFf_s', 'rol': 'superadmin'}
+2025-11-06 10:21:20,635 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0Nzg4MH0.ZZThG8FjEYK76av_QDYbP3WKlTAoM3PIN3-jKGeFf_s', 'rol': 'superadmin'}
+2025-11-06 10:21:20,638 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0Nzg4MH0.ZZThG8FjEYK76av_QDYbP3WKlTAoM3PIN3-jKGeFf_s', 'rol': 'superadmin'}
+2025-11-06 10:21:20,638 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0Nzg4MH0.ZZThG8FjEYK76av_QDYbP3WKlTAoM3PIN3-jKGeFf_s', 'rol': 'superadmin'}
+2025-11-06 10:21:25,423 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:21:25,427 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:21:25,427 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:21:25,428 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:21:25,428 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:21:25,429 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:21:25,429 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:21:26,472 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:21:26,476 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0Nzg4Nn0.YLBlrHt_iOR8uN6dqLdMHxKolcJfDx0owAOjBJXNRB8', 'rol': 'superadmin'}
+2025-11-06 10:21:26,476 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0Nzg4Nn0.YLBlrHt_iOR8uN6dqLdMHxKolcJfDx0owAOjBJXNRB8', 'rol': 'superadmin'}
+2025-11-06 10:27:02,704 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:27:02,708 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:27:02,708 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:27:02,708 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:27:02,708 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:27:02,709 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:27:02,709 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:27:03,089 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:27:03,091 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0ODIyM30.XcEgQQxZ_A_8zrVtSXEruypyaje_Eqp4NWuwzjGLB9k', 'rol': 'superadmin'}
+2025-11-06 10:27:03,091 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0ODIyM30.XcEgQQxZ_A_8zrVtSXEruypyaje_Eqp4NWuwzjGLB9k', 'rol': 'superadmin'}
+2025-11-06 10:33:41,526 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:33:41,529 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:33:41,529 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:33:41,530 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:33:41,530 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:33:41,531 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:33:41,531 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:33:42,028 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:33:42,030 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0ODYyMn0.r5SvDafHcAOdQu60tD1Y65-o61zTAgtWVRuHiEFWh4Y', 'rol': 'superadmin'}
+2025-11-06 10:33:42,030 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0ODYyMn0.r5SvDafHcAOdQu60tD1Y65-o61zTAgtWVRuHiEFWh4Y', 'rol': 'superadmin'}
+2025-11-06 10:40:43,794 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:40:43,798 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:40:43,798 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:40:43,799 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:40:43,799 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:40:43,799 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:40:43,799 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:40:44,443 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:40:44,444 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0OTA0NH0.SFSZY50FrVbCV3VcOdbUhcqsmQLlIbEERKIJeSlXmEo', 'rol': 'superadmin'}
+2025-11-06 10:40:44,444 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0OTA0NH0.SFSZY50FrVbCV3VcOdbUhcqsmQLlIbEERKIJeSlXmEo', 'rol': 'superadmin'}
+2025-11-06 10:43:15,921 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:43:15,923 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:43:15,923 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:43:15,923 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:43:15,923 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:43:15,924 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:43:15,924 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:43:16,338 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:43:16,339 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0OTE5Nn0.udOa5MDXLRNZqvOEDOvP_ms0oWkjTkVoyAXOaXDHiPQ', 'rol': 'superadmin'}
+2025-11-06 10:43:16,339 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0OTE5Nn0.udOa5MDXLRNZqvOEDOvP_ms0oWkjTkVoyAXOaXDHiPQ', 'rol': 'superadmin'}
+2025-11-06 10:43:49,907 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:43:49,909 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:43:49,909 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:43:49,909 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:43:49,909 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:43:49,910 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:43:49,910 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:44:15,539 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:44:15,541 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:44:15,541 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:44:15,542 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:44:15,542 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:44:15,542 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:44:15,542 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:44:30,812 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:44:30,813 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:44:30,813 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:44:30,814 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:44:30,814 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:44:30,814 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:44:30,814 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:44:31,222 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:44:31,224 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0OTI3MX0.wNT4r9OicnOVaEJhIfj88LfzEDGSRc2b966Lcm1Yvcw', 'rol': 'superadmin'}
+2025-11-06 10:44:31,224 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0OTI3MX0.wNT4r9OicnOVaEJhIfj88LfzEDGSRc2b966Lcm1Yvcw', 'rol': 'superadmin'}
+2025-11-06 10:44:56,209 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:44:56,212 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:44:56,212 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 10:44:56,213 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:44:56,213 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 10:44:56,213 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:44:56,213 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 10:44:56,622 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 10:44:56,624 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0OTI5Nn0.t2C_py0A8tcxxAWvEpTY_mUgjuPCZhh6dnG2UPhevI0', 'rol': 'superadmin'}
+2025-11-06 10:44:56,624 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ0OTI5Nn0.t2C_py0A8tcxxAWvEpTY_mUgjuPCZhh6dnG2UPhevI0', 'rol': 'superadmin'}
+2025-11-06 11:24:02,439 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 11:24:02,443 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 11:24:02,443 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 11:24:02,443 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 11:24:02,443 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 11:24:02,444 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 11:24:02,444 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 11:24:02,848 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 11:24:02,850 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ1MTY0Mn0.g2GiPtpBSaepREw1rXBpDR-coWAe4q0aWDg0rBS899Y
+2025-11-06 11:24:02,850 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ1MTY0Mn0.g2GiPtpBSaepREw1rXBpDR-coWAe4q0aWDg0rBS899Y
+2025-11-06 11:24:09,681 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 11:24:09,683 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 11:24:09,683 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 11:24:09,683 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 11:24:09,683 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 11:24:09,684 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 11:24:09,684 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 11:24:10,122 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 11:24:10,124 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ1MTY1MH0.8QOJkhRsDZHiCwSHt7r2S30JFSfvV5OOSO6_s1Wodx4
+2025-11-06 11:24:10,124 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ1MTY1MH0.8QOJkhRsDZHiCwSHt7r2S30JFSfvV5OOSO6_s1Wodx4
+2025-11-06 11:25:01,714 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 11:25:01,716 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 11:25:01,716 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 11:25:01,716 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 11:25:01,716 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 11:25:01,717 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 11:25:01,717 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 11:25:02,134 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 11:25:02,135 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ1MTcwMn0.bKYiu-duKNP1B_kTXOn4Pj6Y_vkFzpx_KDiB92IfeaU
+2025-11-06 11:25:02,135 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como admin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ1MTcwMn0.bKYiu-duKNP1B_kTXOn4Pj6Y_vkFzpx_KDiB92IfeaU
+2025-11-06 11:52:18,218 [INFO] [httpx] HTTP Request: POST https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores "HTTP/2 201 Created"
+2025-11-06 11:52:18,221 [INFO] [app_logger] Administrador abdelgutierrez8@gmail.com registrado exitosamente.
+2025-11-06 11:52:18,221 [INFO] [app_logger] Administrador abdelgutierrez8@gmail.com registrado exitosamente.
+2025-11-06 11:53:24,018 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.270405 "HTTP/2 200 OK"
+2025-11-06 11:53:24,021 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe'}] count=None
+2025-11-06 11:53:24,021 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe'}] count=None
+2025-11-06 11:53:24,022 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe'} count=None
+2025-11-06 11:53:24,022 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe'} count=None
+2025-11-06 11:53:24,023 [WARNING] [app_logger] $2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe
+2025-11-06 11:53:24,023 [WARNING] [app_logger] $2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe
+2025-11-06 11:53:24,577 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.abdelgutierrez8%40gmail.com&matricula=eq.270405 "HTTP/2 200 OK"
+2025-11-06 11:53:24,580 [INFO] [app_logger] Usuario abdelgutierrez8@gmail.com ha iniciado sesión como admin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTI0MzkyYS00NWQ5LTQ5M2MtOTc2YS03MzlmZmJkYTZlMmMiLCJub21icmUiOiJSb2RyaWdvIEFiZGVsIiwicm9sIjoiYWRtaW4iLCJleHAiOjE3NjI0NTM0MDR9.oHCfQAGLtz6Qa4p2VWnqoYNfFpc3FhRmREbKU1VEn2A
+2025-11-06 11:53:24,580 [INFO] [app_logger] Usuario abdelgutierrez8@gmail.com ha iniciado sesión como admin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTI0MzkyYS00NWQ5LTQ5M2MtOTc2YS03MzlmZmJkYTZlMmMiLCJub21icmUiOiJSb2RyaWdvIEFiZGVsIiwicm9sIjoiYWRtaW4iLCJleHAiOjE3NjI0NTM0MDR9.oHCfQAGLtz6Qa4p2VWnqoYNfFpc3FhRmREbKU1VEn2A
+2025-11-06 12:42:33,726 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.270405 "HTTP/2 200 OK"
+2025-11-06 12:42:33,739 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe'}] count=None
+2025-11-06 12:42:33,739 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe'}] count=None
+2025-11-06 12:42:33,740 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe'} count=None
+2025-11-06 12:42:33,740 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe'} count=None
+2025-11-06 12:42:33,741 [WARNING] [app_logger] $2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe
+2025-11-06 12:42:33,741 [WARNING] [app_logger] $2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe
+2025-11-06 12:42:34,228 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.abdelgutierrez8%40gmail.com&matricula=eq.270405 "HTTP/2 200 OK"
+2025-11-06 12:42:34,230 [INFO] [app_logger] Usuario abdelgutierrez8@gmail.com ha iniciado sesión como admin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTI0MzkyYS00NWQ5LTQ5M2MtOTc2YS03MzlmZmJkYTZlMmMiLCJub21icmUiOiJSb2RyaWdvIEFiZGVsIiwicm9sIjoiYWRtaW4iLCJleHAiOjE3NjI0NTYzNTR9.cIchDevRssOx13s91XE7unDHylIdIsrlDfUPOnzWnZM
+2025-11-06 12:42:34,230 [INFO] [app_logger] Usuario abdelgutierrez8@gmail.com ha iniciado sesión como admin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTI0MzkyYS00NWQ5LTQ5M2MtOTc2YS03MzlmZmJkYTZlMmMiLCJub21icmUiOiJSb2RyaWdvIEFiZGVsIiwicm9sIjoiYWRtaW4iLCJleHAiOjE3NjI0NTYzNTR9.cIchDevRssOx13s91XE7unDHylIdIsrlDfUPOnzWnZM
+2025-11-06 12:46:43,780 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.270405 "HTTP/2 200 OK"
+2025-11-06 12:46:43,781 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe'}] count=None
+2025-11-06 12:46:43,781 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe'}] count=None
+2025-11-06 12:46:43,782 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe'} count=None
+2025-11-06 12:46:43,782 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe'} count=None
+2025-11-06 12:46:43,782 [WARNING] [app_logger] $2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe
+2025-11-06 12:46:43,782 [WARNING] [app_logger] $2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe
+2025-11-06 12:46:44,189 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.abdelgutierrez8%40gmail.com&matricula=eq.270405 "HTTP/2 200 OK"
+2025-11-06 12:46:44,190 [INFO] [app_logger] Usuario abdelgutierrez8@gmail.com ha iniciado sesión como admin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTI0MzkyYS00NWQ5LTQ5M2MtOTc2YS03MzlmZmJkYTZlMmMiLCJub21icmUiOiJSb2RyaWdvIEFiZGVsIiwicm9sIjoiYWRtaW4iLCJleHAiOjE3NjI0NTY2MDR9.LkuHhrtn6teKDaBD7KslCWAFSqiXXIW-uCVfsXVVCoA
+2025-11-06 12:46:44,190 [INFO] [app_logger] Usuario abdelgutierrez8@gmail.com ha iniciado sesión como admin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTI0MzkyYS00NWQ5LTQ5M2MtOTc2YS03MzlmZmJkYTZlMmMiLCJub21icmUiOiJSb2RyaWdvIEFiZGVsIiwicm9sIjoiYWRtaW4iLCJleHAiOjE3NjI0NTY2MDR9.LkuHhrtn6teKDaBD7KslCWAFSqiXXIW-uCVfsXVVCoA
+2025-11-06 12:47:07,030 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.270405 "HTTP/2 200 OK"
+2025-11-06 12:47:07,033 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe'}] count=None
+2025-11-06 12:47:07,033 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe'}] count=None
+2025-11-06 12:47:07,035 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe'} count=None
+2025-11-06 12:47:07,035 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe'} count=None
+2025-11-06 12:47:07,036 [WARNING] [app_logger] $2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe
+2025-11-06 12:47:07,036 [WARNING] [app_logger] $2b$12$qDSNDqrE1pBLk8chm68UM.vVkLWSYURzfnD4sSeDXBSz1xDChtZDe
+2025-11-06 12:47:07,541 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.abdelgutierrez8%40gmail.com&matricula=eq.270405 "HTTP/2 200 OK"
+2025-11-06 12:47:07,544 [INFO] [app_logger] Usuario abdelgutierrez8@gmail.com ha iniciado sesión como admin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTI0MzkyYS00NWQ5LTQ5M2MtOTc2YS03MzlmZmJkYTZlMmMiLCJub21icmUiOiJSb2RyaWdvIEFiZGVsIiwicm9sIjoiYWRtaW4iLCJleHAiOjE3NjI0NTY2Mjd9.SnAIa2m_ekfwWJ3SBzsId2P_mZL7_JXBdA5vHDX0qcU
+2025-11-06 12:47:07,544 [INFO] [app_logger] Usuario abdelgutierrez8@gmail.com ha iniciado sesión como admin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTI0MzkyYS00NWQ5LTQ5M2MtOTc2YS03MzlmZmJkYTZlMmMiLCJub21icmUiOiJSb2RyaWdvIEFiZGVsIiwicm9sIjoiYWRtaW4iLCJleHAiOjE3NjI0NTY2Mjd9.SnAIa2m_ekfwWJ3SBzsId2P_mZL7_JXBdA5vHDX0qcU
+2025-11-06 12:47:25,255 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 12:47:25,258 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 12:47:25,258 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 12:47:25,259 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 12:47:25,259 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 12:47:25,260 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 12:47:25,260 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 12:47:25,662 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 12:47:25,663 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como superadmin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ1NjY0NX0.1cLzKrWKBLZMg5JE0bNaRglfr-4YITVH8nbdDaOIFuc
+2025-11-06 12:47:25,663 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como superadmin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ1NjY0NX0.1cLzKrWKBLZMg5JE0bNaRglfr-4YITVH8nbdDaOIFuc
+2025-11-06 12:48:52,586 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=contrasena&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 12:48:52,593 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 12:48:52,593 [INFO] [app_logger] Respuesta de Supabase: data=[{'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'}] count=None
+2025-11-06 12:48:52,596 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 12:48:52,596 [INFO] [app_logger] Respuesta de Supabase: dataaa={'contrasena': '$2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze'} count=None
+2025-11-06 12:48:52,600 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 12:48:52,600 [WARNING] [app_logger] $2b$12$koI0Wt/n07JjbW3L4POCdOHU/pPlOJ7RRmMyCjXvlyZIy0x3ykWze
+2025-11-06 12:48:53,100 [INFO] [httpx] HTTP Request: GET https://tgwxczwyppeftihlmcjj.supabase.co/rest/v1/administradores?select=idadmin%2C%20nombre%2C%20essuper&correo=eq.omar%40gmail.com&matricula=eq.280505 "HTTP/2 200 OK"
+2025-11-06 12:48:53,103 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como superadmin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ1NjczM30.UN8tQZdm13uYtYFErN4i8myPaV06HzJcIl5fnsInOGc
+2025-11-06 12:48:53,103 [INFO] [app_logger] Usuario omar@gmail.com ha iniciado sesión como superadmin con token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3YWMyNDEyOC0yMjI1LTQyYjItYmQ5My0zM2JmZWFlMDhkMjciLCJub21icmUiOiJPbWFyIiwicm9sIjoic3VwZXJhZG1pbiIsImV4cCI6MTc2MjQ1NjczM30.UN8tQZdm13uYtYFErN4i8myPaV06HzJcIl5fnsInOGc

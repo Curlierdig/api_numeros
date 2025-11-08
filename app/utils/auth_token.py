@@ -3,6 +3,7 @@ import jwt
 from datetime import datetime, timedelta, timezone
 from dotenv import load_dotenv
 import os
+from app.utils.logger import logger
 load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
@@ -29,7 +30,9 @@ async def validar_token(request: Request):
     """
     Validar token de acceso JWT en la cookie 
     """
-    token = request.cookies.get("access_token") 
+    token = request.cookies.get("access_token")
+    rol = request.cookies.get("rol")
+    logger.info(f"Validando token: {token}, rol: {rol}") 
     if not token:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED, detail="No se proporcionó token de autenticación")            

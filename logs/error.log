@@ -136,3 +136,23 @@
 2025-11-04 09:43:45,714 [ERROR] [app_logger] Error en login
 2025-11-04 09:46:22,402 [ERROR] [app_logger] Error en login
 2025-11-04 09:46:22,402 [ERROR] [app_logger] Error en login
+2025-11-04 10:07:01,260 [ERROR] [app_logger] Error de Supabase al obtener administrador por correo y matrícula: {'code': '42703', 'details': None, 'hint': 'Perhaps you meant to reference the column "administradores.idadmin".', 'message': 'column administradores.idAdmin does not exist'}
+2025-11-04 10:07:01,260 [ERROR] [app_logger] Error de Supabase al obtener administrador por correo y matrícula: {'code': '42703', 'details': None, 'hint': 'Perhaps you meant to reference the column "administradores.idadmin".', 'message': 'column administradores.idAdmin does not exist'}
+2025-11-04 10:07:01,261 [ERROR] [app_logger] Error en login
+2025-11-04 10:07:01,261 [ERROR] [app_logger] Error en login
+2025-11-04 10:08:41,177 [ERROR] [app_logger] Error de Supabase al obtener administrador por correo y matrícula: {'code': '42703', 'details': None, 'hint': 'Perhaps you meant to reference the column "administradores.idadmin".', 'message': 'column administradores.idAdmin does not exist'}
+2025-11-04 10:08:41,177 [ERROR] [app_logger] Error de Supabase al obtener administrador por correo y matrícula: {'code': '42703', 'details': None, 'hint': 'Perhaps you meant to reference the column "administradores.idadmin".', 'message': 'column administradores.idAdmin does not exist'}
+2025-11-04 10:08:41,179 [ERROR] [app_logger] Error en login
+2025-11-04 10:08:41,179 [ERROR] [app_logger] Error en login
+2025-11-04 10:08:50,107 [ERROR] [app_logger] Error de Supabase al obtener administrador por correo y matrícula: module 'app.utils.logger' has no attribute 'warning'
+2025-11-04 10:08:50,107 [ERROR] [app_logger] Error de Supabase al obtener administrador por correo y matrícula: module 'app.utils.logger' has no attribute 'warning'
+2025-11-04 10:08:50,108 [ERROR] [app_logger] Error en login
+2025-11-04 10:08:50,108 [ERROR] [app_logger] Error en login
+2025-11-04 11:48:44,852 [ERROR] [app_logger] Error en login
+2025-11-04 11:48:44,852 [ERROR] [app_logger] Error en login
+2025-11-04 11:49:23,082 [ERROR] [app_logger] Error en login
+2025-11-04 11:49:23,082 [ERROR] [app_logger] Error en login
+2025-11-04 12:11:37,975 [ERROR] [app_logger] Error de Supabase al crear administrador: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'es_super' column of 'administradores' in the schema cache"}
+2025-11-04 12:11:37,975 [ERROR] [app_logger] Error de Supabase al crear administrador: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'es_super' column of 'administradores' in the schema cache"}
+2025-11-04 12:11:37,975 [ERROR] [app_logger] Error inesperado al registrar administrador
+2025-11-04 12:11:37,975 [ERROR] [app_logger] Error inesperado al registrar administrador

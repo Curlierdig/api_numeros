@@ -108,18 +108,32 @@ class CuentaRepository:
             logger.error(f"Error de Supabase al obtener administrador por ID ({idAdmin}): {str(e)}")
             raise RuntimeError("Error al obtener administrador") from e
 
-    async def obtener_id_nombre_y_rol_administrador_por_correo_matricula_y_contrasena(self, correo: str,
-                                                                                       matricula: str, contrasena: str):
+    async def obtener_id_nombre_y_rol_administrador_por_correo_y_matricula(self, correo: str,
+                                                                                       matricula: str):
         try:
-            response = await self.cliente.table("administradores").select("idAdmin, nombre, esSuper") \
-            .eq("correo", correo).eq("matricula", matricula).eq("contrasena", contrasena).execute()
+            response = await self.cliente.table("administradores").select("idadmin, nombre, essuper") \
+            .eq("correo", correo).eq("matricula", matricula).execute()
             if not response.data:
+                logger.warning(f"no info {response}")
                 logger.warning(f"No se encontró administrador con correo {correo} y matrícula {matricula}")
                 return None
             return response.data
         except Exception as e:
             logger.error(f"Error de Supabase al obtener administrador por correo y matrícula: {str(e)}")
             raise RuntimeError("Error al consultar administrador") from e
+        
+    async def obtener_contrasena_administrador_por_matricula(self, matricula: str):
+        try:
+            response = await self.cliente.table("administradores").select("contrasena").eq("matricula", matricula).execute()
+            logger.info(f"Respuesta de Supabase: {response}")
+            logger.info(f"Respuesta de Supabase: dataaa={response.data[0]} count={response.count}")
+            if not response.data[0]:
+                logger.warning(f"No se encontró administrador con matrícula {matricula}")
+                return None
+            return response.data[0]["contrasena"]
+        except Exception as e:
+            logger.error(f"Error de Supabase al obtener contraseña de administrador por matrícula ({matricula}): {str(e)}")
+            raise RuntimeError("Error al consultar contraseña de administrador") from e
 
     async def eliminar_administrador(self, idAdmin: str):
         try:

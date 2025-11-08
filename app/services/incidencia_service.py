@@ -63,7 +63,7 @@ class IncidenciaService:
             logger.error(f"Error al obtener incidencia por ID {idReporte}: {e}")
             raise HTTPException(status_code=500, detail=f"Error al obtener incidencia por ID: {e}")
 
-    async def obtener_incidencias_filtradas(self, columna_orden: str = "fechaReporte", limite: int = 50, cursor: str = None,
+    async def obtener_incidencias_administrador(self, columna_orden: str = "fechaReporte", limite: int = 50, cursor: str = None,
                                              valor_busqueda: str = None, orden_descendente: bool = True):
         try:
             return await self.db.obtener_incidencias(columna_orden, limite, cursor, valor_busqueda, orden_descendente)
@@ -83,6 +83,22 @@ class IncidenciaService:
         except Exception as e:
             logger.error(f"Error al actualizar incidencia {idReporte}: {e}")
             raise HTTPException(status_code=500, detail=f"Error al actualizar incidencia: {e}")
+
+    async def modificar_estado_incidencia(self, idReporte: str, nuevo_estado: str):
+        if not idReporte:
+            logger.error("El ID de reporte no se proporcionó")
+            raise HTTPException(status_code=400, detail="El ID de reporte es obligatorio")
+        if not nuevo_estado:
+            logger.error("El nuevo estado no se proporcionó")
+            raise HTTPException(status_code=400, detail="El nuevo estado es obligatorio")
+        try:
+            incidencia_actualizada = await self.db.modificar_estado_incidencia(idReporte, nuevo_estado)
+            if not incidencia_actualizada:
+                raise HTTPException(status_code=404, detail="Incidencia no encontrada")
+            return incidencia_actualizada
+        except Exception as e:
+            logger.error(f"Error al modificar estado de incidencia {idReporte}: {e}")
+            raise HTTPException(status_code=500, detail=f"Error al modificar estado de incidencia: {e}")
 
     async def eliminar_incidencia(self, idReporte: str):
         if not idReporte:

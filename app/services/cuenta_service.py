@@ -3,7 +3,7 @@ from app.utils import logger
 import uuid
 from fastapi import HTTPException, status
 from email_validator import validate_email, EmailNotValidError
-from app.utils.hash import hashear_contrasena
+from app.utils.hash import hashear_contrasena, confirmar_contrasena
 from app.utils.auth_token import crear_token_acceso
 from app.repositories.cuenta_repository import CuentaRepository
 from app.models.cuenta_model import AdminModel, UserModel
@@ -241,7 +241,7 @@ class CuentaService:
                 usuario = await self.db.obtener_id_y_nombre_usuario_por_correo_y_telefono(correo, contrasena)
                 if usuario:
                     token = crear_token_acceso(id=usuario[0]['idusuario'], nombre=usuario[0]['nombre'], rol="normal")
-                    return {"access_token": token, "rol": "normal"}
+                    return token, "normal", usuario[0]['idusuario']
                 raise HTTPException(
                     status_code=status.HTTP_401_UNAUTHORIZED,
                     detail="Credenciales inválidas para usuario normal"
@@ -251,14 +251,24 @@ class CuentaService:
                     status_code=status.HTTP_400_BAD_REQUEST,
                     detail="La matrícula es obligatoria para administradores"
                 )
-            contrasena_hasheada = hashear_contrasena(contrasena)
-            admin = await self.db.obtener_id_nombre_y_rol_administrador_por_correo_matricula_y_contrasena(
-                correo, matricula, contrasena_hasheada
-            )
+            contrasena_hasheada = await self.db.obtener_contrasena_administrador_por_matricula(matricula)
+            logger.warning(contrasena_hasheada)
+            if not contrasena_hasheada:
+                raise HTTPException(
+                    status_code=status.HTTP_401_UNAUTHORIZED,
+                    detail="Credenciales inválidas para administrador"
+                )
+            contrasena_correcta = confirmar_contrasena(contrasena, contrasena_hasheada)
+            if not contrasena_correcta:
+                raise HTTPException(
+                    status_code=status.HTTP_401_UNAUTHORIZED,
+                    detail="Credenciales inválidas para administrador."
+                )
+            admin = await self.db.obtener_id_nombre_y_rol_administrador_por_correo_y_matricula(correo, matricula)
             if admin:
-                rol_admin = "superadmin" if admin[0].get('esSuper') else "admin"
-                token = crear_token_acceso(id=admin[0]['idAdmin'], name=admin[0]['nombre'], rol=rol_admin)
-                return {"access_token": token, "rol": rol_admin}
+                rol_admin = "superadmin" if admin[0].get('essuper') else "admin"
+                token = crear_token_acceso(id=admin[0]['idadmin'], nombre=admin[0]['nombre'], rol=rol_admin)
+                return token, rol_admin, admin[0]['idadmin']
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Credenciales inválidas para administrador"

@@ -144,7 +144,7 @@ class IncidenciaRepository:
             logger.error(f"Error al obtener incidencia por ID {idReporte}: {e}")
             raise RuntimeError("Error al obtener incidencia por ID")
 
-
+    async def actualizar_incidencia(self, idReporte: str, datos_actualizados: dict):
         """
             Parametros:
                 idReporte (str): ID del reporte a actualizar.
@@ -159,7 +159,6 @@ class IncidenciaRepository:
                 - supuestoTrabajo (str, opcional): Trabajo del supuesto.
                 - estatus (str, opcional): Estatus del reporte. Default 'pendiente'
         """
-    async def actualizar_incidencia(self, idReporte: str, datos_actualizados: dict):
         try:
             response = await self.cliente.table(self.tabla_incidencias).update(datos_actualizados).eq("idReporte", idReporte).execute()
             if response.data:
@@ -167,6 +166,16 @@ class IncidenciaRepository:
             return None
         except Exception as e:
             logger.error(f"Error al actualizar incidencia {idReporte}: {e}")
+            return None
+    
+    async def modificar_estado_incidencia(self, idReporte: str, nuevo_estado: str):
+        try:
+            response = await self.cliente.table(self.tabla_incidencias).update({"estatus": nuevo_estado}).eq("idReporte", idReporte).execute()
+            if response.data:
+                return response.data
+            return None
+        except Exception as e:
+            logger.error(f"Error al modificar estado de incidencia {idReporte}: {e}")
             return None
 
     async def eliminar_incidencia(self, idReporte: str):
