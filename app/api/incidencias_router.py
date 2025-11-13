@@ -7,26 +7,25 @@ from app.utils.logger import logger
 
 router = APIRouter(prefix="/incidencias", tags=["Incidencias"])
 
-@router.get("/filtrar_incidencias") #posibilidad de cambiar nombre
-async def listar_incidencias_keyset(
+@router.get("/filtrar") 
+async def filtrar(
     limite: int = Query(20, gt=0, le=100),
     cursor_fecha: str = Query(None),
     search_value: str = Query(None, alias="search[value]"),
-    ordenar_desc: bool = Query(True),
-    columna_orden: str = Query("fechaReporte"),
+    orden_desc: bool = Query(True),
+    columna_orden: str = Query("fechareporte"),
     incidencia_service: IncidenciaService = Depends(get_incidencia_service)
 ):
-    result = await incidencia_service.obtener_incidencias_administrador(
+    resultado = await incidencia_service.obtener_incidencias_administrador(
         limite=limite,
         cursor=cursor_fecha,
         valor_busqueda=search_value,
-        ordenar_desc=ordenar_desc,
+        orden_desc=orden_desc,
         columna_orden=columna_orden
     )
-    return result
-#A BORRAR
+    return resultado
 
-@router.get("/incidencias_usuario")
+@router.get("/usuarios")
 async def listar_incidencias_usuario(
     limite: int = Query(50, gt=0, le=100),
     ultima_fecha: str = Query(None),
@@ -39,20 +38,22 @@ async def listar_incidencias_usuario(
         raise HTTPException(status_code=500, detail=f"Error al obtener incidencias de usuario: {e}")
 
 @router.get("/incidencia_completa/{idReporte}")
-async def obtener_incidencia(idReporte: str, incidencia_service: IncidenciaService = Depends(get_incidencia_service)):
+async def obtener_incidencia_completa(idReporte: str, incidencia_service: IncidenciaService = Depends(get_incidencia_service)):
     try:
         return await incidencia_service.obtener_incidencia_por_id(idReporte)
     except Exception as e:
         logger.error(f"Error al obtener incidencia {idReporte}: {e}")
         raise HTTPException(status_code=500, detail=f"Error al obtener incidencia: {e}")
 
-@router.post("/crear", response_model=CrearIncidencia)
-async def crear_incidencia(incidencia: CrearIncidencia, incidencia_service: IncidenciaService = Depends(get_incidencia_service)):
+@router.post("/crear")
+async def crear_incidencia(incidencia: CrearIncidencia, 
+                           incidencia_service: IncidenciaService = Depends(get_incidencia_service)):
     resultado = await incidencia_service.crear_incidencia(incidencia)
     return resultado
 
 @router.put("/modificar/{idReporte}")
-async def modificar_incidencia(idReporte: str, incidencia: dict, incidencia_service: IncidenciaService = Depends(get_incidencia_service)):
+async def modificar_incidencia(idReporte: str, incidencia: dict, 
+                               incidencia_service: IncidenciaService = Depends(get_incidencia_service)):
     try:
         resultado = await incidencia_service.actualizar_incidencia(idReporte, incidencia.model_dump())
         return resultado
@@ -61,7 +62,8 @@ async def modificar_incidencia(idReporte: str, incidencia: dict, incidencia_serv
         raise HTTPException(status_code=500, detail=f"Error al modificar incidencia: {e}")
 
 @router.patch("/modificar_status/{idReporte}")
-async def modificar_status_incidencia(idReporte: str, nuevo_estado: str, incidencia_service: IncidenciaService = Depends(get_incidencia_service)):
+async def modificar_status_incidencia(idReporte: str, nuevo_estado: str, 
+                                       incidencia_service: IncidenciaService = Depends(get_incidencia_service)):
     try:
         resultado = await incidencia_service.modificar_estado_incidencia(idReporte, nuevo_estado)
         return resultado

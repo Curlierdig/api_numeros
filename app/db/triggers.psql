@@ -1,21 +1,28 @@
---TRIGGER PARA ACTUALIZAR TOTAL REPORTES EN USUARIOS
--- Función que actualiza el contador
-CREATE OR REPLACE FUNCTION upsert_veces_reportado()
+CREATE OR REPLACE FUNCTION actualizar_veces_reportado()
 RETURNS TRIGGER AS $$
 BEGIN
-  INSERT INTO reportados (idNumero, vecesReportado)
-  VALUES (NEW.idNumero, 1)
-  ON CONFLICT (idNumero)
-  DO UPDATE SET vecesReportado = reportados.vecesReportado + 1;
+  -- Si el número ya existe, incrementa el contador
+  IF EXISTS (SELECT 1 FROM reportados WHERE idNumero = NEW.idNumero) THEN
+    UPDATE reportados
+    SET vecesReportado = vecesReportado + 1
+    WHERE idNumero = NEW.idNumero;
+  ELSE
+    -- Si no existe, lo inserta con contador inicial en 1
+    INSERT INTO reportados (idNumero, numeroReportado, vecesReportado)
+    VALUES (NEW.idNumero, NEW.numeroReportado, 1);
+  END IF;
+
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER trg_upsert_veces_reportado
-AFTER INSERT ON reportes
-FOR EACH ROW
-EXECUTE FUNCTION upsert_veces_reportado();
+DROP TRIGGER IF EXISTS trg_upsert_veces_reportado ON reportes;
 
+CREATE TRIGGER trg_upsert_veces_reportado
+BEFORE INSERT
+ON reportes
+FOR EACH ROW
+EXECUTE FUNCTION actualizar_veces_reportado();
 
 
 CREATE OR REPLACE FUNCTION mantener_mv_busqueda_reportes()

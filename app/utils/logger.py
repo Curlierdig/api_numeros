@@ -45,7 +45,6 @@ if not logger.hasHandlers():
     logger.addHandler(error_handler)
     logger.addHandler(console_handler)
 
-logging.basicConfig(level=logging.DEBUG, handlers=[app_handler, error_handler, console_handler])
 def error(msg: str):
     """Registra un mensaje de error usando el logger principal."""
     logger.error(msg)

@@ -58,7 +58,6 @@ class CuentaRepository:
         try:
             response = await self.cliente.table("usuarios").select("idusuario").eq("numerotelefono", telefono).execute()
             if not response.data:
-                logger.info(f"No existe usuario con teléfono {telefono}")
                 return False
             return True
         except Exception as e:
@@ -125,8 +124,6 @@ class CuentaRepository:
     async def obtener_contrasena_administrador_por_matricula(self, matricula: str):
         try:
             response = await self.cliente.table("administradores").select("contrasena").eq("matricula", matricula).execute()
-            logger.info(f"Respuesta de Supabase: {response}")
-            logger.info(f"Respuesta de Supabase: dataaa={response.data[0]} count={response.count}")
             if not response.data[0]:
                 logger.warning(f"No se encontró administrador con matrícula {matricula}")
                 return None

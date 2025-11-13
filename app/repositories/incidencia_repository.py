@@ -5,7 +5,7 @@ from app.utils.logger import logger
 class IncidenciaRepository:
     def __init__(self, cliente=None):
         self.cliente = cliente
-        self.tabla_incidencias = "incidencias"
+        self.tabla_incidencias = "reportes"
         self.tabla_reportados = "reportados"
         self.tabla_destino = "destino"
         self.vista_busqueda_reportes = "mv_busqueda_reportes"  # Vista materializada para búsqueda de texto completo
@@ -34,36 +34,35 @@ class IncidenciaRepository:
         """
         try:
             numero_reportado = datos_incidencia.get("numeroReportado")
-            response_numero = await self.cliente.table(self.tabla_reportados).select("idNumero").eq("numeroReportado", numero_reportado).execute()
+            response_numero = await self.cliente.table(self.tabla_reportados).select("idnumero").eq("numeroreportado", numero_reportado).execute()
 
             if not response_numero.data:
-                logger.info(f"Número reportado {numero_reportado} no existe en la tabla reportados. Insertando nuevo.")
-                response_numero = await self.cliente.table(self.tabla_reportados).insert({"numeroReportado": numero_reportado}).select("idNumero").execute()
+                response_numero = await self.cliente.table(self.tabla_reportados).insert({"numeroreportado": numero_reportado}).execute()
             datos_reporte = {
-                "idUsuario": datos_incidencia["idUsuario"],
-                "idNumero": response_numero.data[0]["idNumero"],
-                "categoriaReporte": datos_incidencia.get("categoriaReporte"),
+                "idusuario": datos_incidencia["idUsuario"],
+                "idnumero": response_numero.data[0]["idnumero"],
+                "categoriareporte": datos_incidencia.get("categoriaReporte"),
                 "descripcion": datos_incidencia.get("descripcion"),
-                "medioContacto": datos_incidencia.get("medioContacto"),
+                "mediocontacto": datos_incidencia.get("medioContacto"),
                 "genero": datos_incidencia.get("genero"),
-                "supuestoNombre": datos_incidencia.get("supuestoNombre"),
-                "supuestoTrabajo": datos_incidencia.get("supuestoTrabajo"),
-                "esVisible": datos_incidencia.get("esVisible", True),
+                "supuestonombre": datos_incidencia.get("supuestoNombre"),
+                "supuestotrabajo": datos_incidencia.get("supuestoTrabajo"),
+                "esvisible": datos_incidencia.get("esVisible", True),
                 "estatus": datos_incidencia.get("estatus", "pendiente")
             }
             response = await self.cliente.table(self.tabla_incidencias).insert(datos_reporte).execute()
 
             if not response.data:
                 raise RuntimeError("No se pudo crear el reporte")
-            id_reporte = response.data[0]["idReporte"]
+            id_reporte = response.data[0]["idreporte"]
             tipo_destino = datos_incidencia.get("tipoDestino")
 
             if tipo_destino in ["tarjeta", "ubicacion"]:
                 datos_destino = {
-                    "tipoEnum": tipo_destino,
-                    "numeroTarjeta": datos_incidencia.get("numeroTarjeta"),
+                    "tipoenum": tipo_destino,
+                    "numerotarjeta": datos_incidencia.get("numeroTarjeta"),
                     "direccion": datos_incidencia.get("direccion"),
-                    "idReporte": id_reporte
+                    "idreporte": id_reporte
                 }
                 await self.cliente.table(self.tabla_destino).insert(datos_destino).execute()
             return {"mensaje": "Incidencia creada correctamente", "idReporte": id_reporte}
@@ -71,30 +70,29 @@ class IncidenciaRepository:
             logger.error(f"Error al crear incidencia: {e}")
             raise RuntimeError("Error al crear incidencia")
 
-    async def obtener_incidencias_para_usuario(self, limite: int = 50, cursor: str = None): #Join implicito con la tabla reportados que intercambia el nombre de la columna numeroReportado por reportados.numeroReportado
+    async def obtener_incidencias_usuario(self, limite: int = 20, cursor: str = None): #Join implicito con la tabla reportados que intercambia el nombre de la columna numeroReportado por reportados.numeroReportado
         try:
-            query = await self.cliente.table(self.tabla_incidencias) \
-                .select("idReporte, numeroReportado:reportados.numeroReportado, categoriaReporte, medioContacto, fechaReporte") \
-                .order("fechaReporte", desc=True)
-            
+            query = self.cliente.table(self.tabla_incidencias) \
+                .select("idreporte, reportados(numeroreportado), categoriareporte, mediocontacto, fechareporte") \
+                .order("fechareporte", desc=True)
+
             if cursor:
-                query = query.lt("fechaReporte", cursor)
+                query = query.lt("fechareporte", cursor)
 
             response = await query.limit(limite).execute()
-
             if response.data:
                 return {
                     "data": response.data, 
-                    "cursor": response.data[-1]["fechaReporte"]
+                    "cursor": response.data[-1]["fechareporte"]
                 }
         except Exception as e:
             logger.error(f"Error al obtener incidencias para usuario: {e}")
             raise RuntimeError("Error al obtener incidencias para usuario")
 
-    async def obtener_incidencias(self, columna_orden: str = "fechaReporte", limite: int = 50, cursor: str = None, valor_busqueda: str = None,  ordenar_desc: bool = True):
+    async def obtener_incidencias(self, columna_orden: str = "fechareporte", limite: int = 50, cursor: str = None, valor_busqueda: str = None,  ordenar_desc: bool = True):
         """Obtiene todas las incidencias con paginación y búsqueda de texto completo.
             Parametros:
-                columna_orden (str): Columna por la cual ordenar los resultados. Default es "fechaReporte".
+                columna_orden (str): Columna por la cual ordenar los resultados. Default es "fechareporte".
                 limite (int): Número máximo de resultados a devolver. Default es 50.
                 cursor (str): Ultimo Valor de la columna de orden para paginación. Default es None.
                 valor_busqueda (str): Texto para búsqueda de texto completo. Default es None.
@@ -110,7 +108,7 @@ class IncidenciaRepository:
                     query = query.gt(columna_orden, cursor)
 
             # Combinación de columnas donde buscar
-            campo_combinado = "nombre_usuario || ' ' || numeroReportado || ' ' || categoriaReporte || ' ' || estatus"
+            campo_combinado = "nombre_usuario || ' ' || numeroreportado || ' ' || categoriareporte || ' ' || estatus"
 
             if valor_busqueda:
                 palabras = valor_busqueda.split()
@@ -123,7 +121,6 @@ class IncidenciaRepository:
             query = query.order(columna_orden, desc=ordenar_desc)
 
             response = await query.limit(limite).execute()
-
             if response.data:
                 return {
                     "data": response.data,
@@ -136,7 +133,7 @@ class IncidenciaRepository:
 
     async def obtener_incidencia_por_id(self, idReporte: str):
         try:
-            response = await self.cliente.table(self.vista_reportes).select("*").eq("idReporte", idReporte).execute()
+            response = await self.cliente.table(self.vista_reportes).select("*").eq("idreporte", idReporte).execute()
             if response.data and len(response.data) > 0:
                 return response.data
             return None
@@ -160,7 +157,7 @@ class IncidenciaRepository:
                 - estatus (str, opcional): Estatus del reporte. Default 'pendiente'
         """
         try:
-            response = await self.cliente.table(self.tabla_incidencias).update(datos_actualizados).eq("idReporte", idReporte).execute()
+            response = await self.cliente.table(self.tabla_incidencias).update(datos_actualizados).eq("idreporte", idReporte).execute()
             if response.data:
                 return response.data
             return None
@@ -170,7 +167,7 @@ class IncidenciaRepository:
     
     async def modificar_estado_incidencia(self, idReporte: str, nuevo_estado: str):
         try:
-            response = await self.cliente.table(self.tabla_incidencias).update({"estatus": nuevo_estado}).eq("idReporte", idReporte).execute()
+            response = await self.cliente.table(self.tabla_incidencias).update({"estatus": nuevo_estado}).eq("idreporte", idReporte).execute()
             if response.data:
                 return response.data
             return None
@@ -180,7 +177,7 @@ class IncidenciaRepository:
 
     async def eliminar_incidencia(self, idReporte: str):
         try:
-            response = await self.cliente.table(self.tabla_incidencias).delete().eq("idReporte", idReporte).execute()
+            response = await self.cliente.table(self.tabla_incidencias).delete().eq("idreporte", idReporte).execute()
             if response.data:
                 return response.data
             return None

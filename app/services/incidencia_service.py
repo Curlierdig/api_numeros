@@ -29,12 +29,13 @@ class IncidenciaService:
                     - direccion
         """
         try:
+            datos_incidencia = datos_incidencia.model_dump()
             campos_requeridos = ["idUsuario", "numeroReportado", "categoriaReporte", "descripcion", "medioContacto", "genero"]
             for campo in campos_requeridos:
                 if not datos_incidencia.get(campo):
                     raise HTTPException(status_code=400, detail=f"El campo '{campo}' es obligatorio")
 
-            nueva_incidencia = await self.db.crear_incidencia(datos_incidencia.model_dump())
+            nueva_incidencia = await self.db.crear_incidencia(datos_incidencia)
 
             if not nueva_incidencia:
                 raise HTTPException(status_code=500, detail="Error al crear la incidencia en la base de datos")
@@ -63,10 +64,10 @@ class IncidenciaService:
             logger.error(f"Error al obtener incidencia por ID {idReporte}: {e}")
             raise HTTPException(status_code=500, detail=f"Error al obtener incidencia por ID: {e}")
 
-    async def obtener_incidencias_administrador(self, columna_orden: str = "fechaReporte", limite: int = 50, cursor: str = None,
-                                             valor_busqueda: str = None, orden_descendente: bool = True):
+    async def obtener_incidencias_administrador(self, columna_orden: str = "fechareporte", limite: int = 50, cursor: str = None,
+                                             valor_busqueda: str = None, orden_desc: bool = True):
         try:
-            return await self.db.obtener_incidencias(columna_orden, limite, cursor, valor_busqueda, orden_descendente)
+            return await self.db.obtener_incidencias(columna_orden, limite, cursor, valor_busqueda, orden_desc)
         except Exception as e:
             logger.error(f"Error al obtener incidencias filtradas: {e}")
             raise HTTPException(status_code=500, detail=f"Error al obtener incidencias filtradas: {e}")
