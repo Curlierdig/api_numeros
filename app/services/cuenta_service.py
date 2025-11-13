@@ -218,7 +218,7 @@ class CuentaService:
     # LOGIN (USUARIO Y ADMIN)
     # ==============================
 
-    async def login(self, correo: str, contrasena: str, rol: str, matricula: str = None):
+    async def login(self, correo: str, contrasena: str, rol: str = "normal", matricula: str = None):
         try:
             if not correo or not contrasena:
                 raise HTTPException(

@@ -55,21 +55,11 @@ async def crear_incidencia(incidencia: CrearIncidencia,
 async def modificar_incidencia(idReporte: str, incidencia: dict, 
                                incidencia_service: IncidenciaService = Depends(get_incidencia_service)):
     try:
-        resultado = await incidencia_service.actualizar_incidencia(idReporte, incidencia.model_dump())
+        resultado = await incidencia_service.actualizar_incidencia(idReporte, incidencia)
         return resultado
     except Exception as e:
         logger.error(f"Error al modificar incidencia {idReporte}: {e}")
         raise HTTPException(status_code=500, detail=f"Error al modificar incidencia: {e}")
-
-@router.patch("/modificar_status/{idReporte}")
-async def modificar_status_incidencia(idReporte: str, nuevo_estado: str, 
-                                       incidencia_service: IncidenciaService = Depends(get_incidencia_service)):
-    try:
-        resultado = await incidencia_service.modificar_estado_incidencia(idReporte, nuevo_estado)
-        return resultado
-    except Exception as e:
-        logger.error(f"Error al modificar estado de incidencia {idReporte}: {e}")
-        raise HTTPException(status_code=500, detail=f"Error al modificar estado de incidencia: {e}")
 
 @router.delete("/eliminar/{idReporte}")
 async def eliminar_incidencia(idReporte: str, incidencia_service: IncidenciaService = Depends(get_incidencia_service)):
