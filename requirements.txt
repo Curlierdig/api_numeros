@@ -10,3 +10,5 @@ passlib==1.7.4
 bcrypt==3.2.2
 # Base de datos Supabase SDK 
 supabase==2.5.0              
+python-multipart==0.0.20
+prometheus-fastapi-instrumentator==7.1.0
