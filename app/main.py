@@ -1,12 +1,32 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api import user_router, auth_router, incidencias_router, super_admin_router, admin_router
+from prometheus_fastapi_instrumentator import Instrumentator
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    global supabase_client
+    print("Conectando a Supabase.")
+    try: 
+        await crear_cliente_supabase() # Se crea UNA sola vez
+    except Exception as e:
+        print(f"Error al conectar a Supabase: {e}")
+    yield
 
 app = FastAPI(
     title="Sistema de Registro de Números de Extorsión",
     description="API para registrar y consultar números de extorsión",
     version="1.0.0",
+    lifespan=lifespan
 )
+
+from contextlib import asynccontextmanager
+from fastapi import FastAPI
+from app.core.supabase_client import crear_cliente_supabase
+
+
+
 
 # Configuración de CORS (para permitir frontend externo)
 origins = [
@@ -35,3 +55,4 @@ app.include_router(admin_router.router)
 def root():
     return {"message": "Bienvenido al Sistema de Registro de Números de Extorsión"}
 
+Instrumentator().instrument(app).expose(app)

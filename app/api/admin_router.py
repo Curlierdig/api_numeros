@@ -1,11 +1,8 @@
 from fastapi import APIRouter, Depends
-from app.services.incidencia_service import IncidenciaService
-from app.services.instancias import get_incidencia_service
-from app.models.incidencia_model import CrearIncidencia
-
+from app.services.auth_token_service import requiere_admin
 router = APIRouter(prefix="/admin", tags=["Administrador"])
 
-@router.get("/dashboard")
-async def dashboard():
+@router.get("/info")
+async def dashboard(usuario=Depends(requiere_admin)):
     return {"message": "Admin Router funcionando"}
 

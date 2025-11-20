@@ -9,7 +9,7 @@ from app.utils.logger import logger
 
 router = APIRouter(prefix="/superadmin", tags=["Super Admin"])
 
-@router.get("/dashboard")
+@router.get("/info")
 def dashboard(usuario=Depends(requiere_superadmin)):
     return {"esSuperAdmin": True}
 
