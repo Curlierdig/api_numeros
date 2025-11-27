@@ -1,0 +1,72 @@
+-- =====================================
+-- TABLA ADMIN
+-- =====================================
+create table administradores (
+  idAdmin uuid primary key default gen_random_uuid(),
+  nombre text not null,
+  matricula text unique not null, -- número de empleado
+  correo text unique not null,
+  contrasena text not null,
+  esSuper boolean default false
+);
+
+-- =====================================
+-- TABLA USUARIOS
+-- =====================================
+create table usuarios (
+  idUsuario uuid primary key default gen_random_uuid(),
+  idAdmin uuid references admin(idAdmin) on delete set null,
+  nombre text not null,
+  edad int not null,
+  sexo text not null,
+  municipio text not null,
+  entidadForanea text not null, -- estado
+  numeroTelefono text unique not null,
+  totalReportes int default 0,
+  fechaCreacion timestamp default now()
+);
+
+--======================================
+-- TABLA CORREOS
+--======================================
+create table correos (
+  idUsuario uuid references usuarios(idUsuario) on delete cascade,
+  correo text
+); 
+
+-- =====================================
+-- TABLA REPORTADOS (números reportados)
+-- =====================================
+create table reportados (
+  idNumero uuid primary key default gen_random_uuid(),
+  numeroReportado text unique not null,
+  vecesReportado int default 1
+);
+
+-- =====================================
+-- TABLA REPORTES
+-- =====================================
+create table reportes (
+  idReporte uuid primary key default gen_random_uuid(),
+  idUsuario uuid references usuarios(idUsuario) on delete cascade,
+  idNumero uuid references reportados(idNumero) on delete cascade,
+  categoriaReporte text check (categoriaReporte in ('extorsion','acoso','spam')),
+  fechaReporte timestamp default now(),
+  descripcion text,
+  medioContacto text,
+  genero text,
+  supuestoNombre text,
+  supuestoTrabajo text,
+  estatus text default 'pendiente'
+);
+
+-- =====================================
+-- TABLA DESTINO
+-- =====================================
+create table destino (
+  idDestino uuid primary key default gen_random_uuid(),
+  tipoEnum text check (tipoEnum in ('tarjeta','ubicacion')),
+  numeroTarjeta text,
+  direccion text,
+  idReporte uuid references reportes(idReporte) on delete cascade
+);

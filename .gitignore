@@ -1,0 +1,10 @@
+.env
+venv/
+logs/
+__pycache__/
+*.log
+*.pyc
+*.py[cod]
+*$py.class
+dockerfile
+.dockerignore

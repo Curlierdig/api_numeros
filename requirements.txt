@@ -1,0 +1,14 @@
+# FastAPI y servidor
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+# Validación y seguridad
+pydantic==2.9.2
+python-dotenv==1.0.1
+pyJWT==2.10.1
+email-validator==2.0.0
+passlib==1.7.4
+bcrypt==3.2.2
+# Base de datos Supabase SDK 
+supabase==2.5.0              
+python-multipart==0.0.20
+prometheus-fastapi-instrumentator==7.1.0

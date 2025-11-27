@@ -1,0 +1,62 @@
+
+
+CREATE MATERIALIZED VIEW mv_busqueda_reportes AS
+SELECT 
+    r.idReporte,
+    u.nombre AS nombre_usuario,
+    rep.numeroReportado,
+    r.categoriaReporte,
+    r.fechaReporte,
+    r.estatus
+FROM reportes r
+LEFT JOIN usuarios u ON r.idUsuario = u.idUsuario
+LEFT JOIN reportados rep ON r.idNumero = rep.idNumero;
+
+CREATE OR REPLACE VIEW vista_reportes_completos AS
+SELECT 
+    -- Datos del reporte
+    r.idReporte,
+    r.fechaReporte,
+    r.categoriaReporte,
+    r.descripcion,
+    r.medioContacto,
+    r.genero,
+    r.supuestoNombre,
+    r.supuestoTrabajo,
+    r.esVisible,
+    r.estatus,
+
+    -- Datos del número reportado
+    rep.numeroReportado,
+    rep.vecesReportado,
+
+    -- Datos del usuario que reportó
+    u.idUsuario,
+    u.nombre AS nombreUsuario,
+    u.edad,
+    u.sexo,
+    u.municipio,
+    u.entidadForanea,
+    u.numeroTelefono,
+    u.totalReportes,
+    u.fechaCreacion,
+
+    -- Correo(s) del usuario
+    c.correo AS correoUsuario,
+
+    -- Datos del administrador que registró al usuario
+    a.idAdmin,
+    a.nombre AS nombreAdmin,
+
+    -- Datos del destino (si aplica)
+    d.idDestino,
+    d.tipoEnum AS tipoDestino,
+    d.numeroTarjeta,
+    d.direccion
+
+FROM reportes r
+LEFT JOIN usuarios u ON r.idUsuario = u.idUsuario
+LEFT JOIN correos c ON u.idUsuario = c.idUsuario
+LEFT JOIN administradores a ON u.idAdmin = a.idAdmin
+LEFT JOIN reportados rep ON r.idNumero = rep.idNumero
+LEFT JOIN destino d ON r.idReporte = d.idReporte;
