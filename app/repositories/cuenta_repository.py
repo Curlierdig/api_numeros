@@ -38,21 +38,36 @@ class CuentaRepository:
         
 
     async def obtener_id_y_nombre_usuario_por_correo_y_telefono(self, correo: str, telefono: str):
+        """
+        Verifica si existe un usuario con el correo y teléfono dados.
+        """
         try:
-            correo_resp = await self.cliente.table("correos").select("idusuario").eq("correo", correo).execute()
-            if not correo_resp.data:
-                logger.warning(f"No se encontró correo {correo}")
-                return None
-            usuario_id = correo_resp.data[0]["idusuario"]
-            usuario_resp = await self.cliente.table("usuarios").select("idusuario, nombre").eq("idusuario", usuario_id).eq("numerotelefono", telefono).execute()
-            if not usuario_resp.data:
-                logger.warning(f"No se encontró usuario con id {usuario_id} y teléfono {telefono}")
-                return None
-            return usuario_resp.data
+            # 1. Preparamos los parámetros exactos que pide tu función SQL
+            params = {
+                "p_correo": correo,
+                "p_telefono": telefono
+            }
+            # 2. Llamada RPC (Remote Procedure Call)
+            # Nota: Asegúrate de poner el nombre exacto de tu función en la base de datos
+            response = await self.cliente.rpc("obtener_usuario_por_correo_y_telefono", params).execute()
+
+            # 3. La respuesta viene en response.data
+            resultado = response.data 
+            
+            if not resultado:
+                raise RuntimeError("La base de datos no devolvió respuesta.")
+
+            if resultado.get("error") is True:
+                # Aquí decides si lanzar una excepción o retornar un False
+                logger.warning(f"Login fallido: {resultado.get('mensaje')}")
+                return None # O raise ValueError(resultado.get("mensaje"))
+
+            return resultado.get("data")
 
         except Exception as e:
-            logger.error(f"Error de Supabase al obtener usuario por correo y teléfono: {str(e)}")
-            raise RuntimeError("Error al consultar usuario") from e
+            logger.error(f"Error crítico en validar_login_usuario: {e}")
+            # Manejo de error de conexión o de la librería
+            raise e
 
     async def verificar_existencia_usuario_por_telefono(self, telefono: str):
         try:
