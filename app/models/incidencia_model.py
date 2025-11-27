@@ -10,6 +10,6 @@ class CrearIncidencia(BaseModel):
     genero: Optional[str] = None
     supuestoNombre: Optional[str] = None
     supuestoTrabajo: Optional[str] = None
-    tipoDestino: str  # 'tarjeta' o 'ubicacion'
+    tipoDestino: Optional[str] = None  # 'tarjeta' o 'ubicacion'
     numeroTarjeta: Optional[str] = None
     direccion: Optional[str] = None

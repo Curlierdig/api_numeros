@@ -56,10 +56,13 @@ class CuentaRepository:
 
     async def verificar_existencia_usuario_por_telefono(self, telefono: str):
         try:
-            response = await self.cliente.table("usuarios").select("idusuario").eq("numerotelefono", telefono).execute()
-            if not response.data:
-                return False
-            return True
+            response = await self.cliente.table("usuarios")\
+            .select("idusuario", count="exact")\
+            .eq("numerotelefono", telefono)\
+            .limit(1)\
+            .execute()
+            #response = await self.cliente.table("usuarios").select("idusuario").eq("numerotelefono", telefono).execute()
+            return response.count > 0
         except Exception as e:
             logger.error(f"Error de Supabase al verificar existencia de usuario por teléfono ({telefono}): {str(e)}")
             raise RuntimeError("Error al verificar existencia de usuario") from e

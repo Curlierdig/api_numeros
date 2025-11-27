@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api import user_router, auth_router, incidencias_router, super_admin_router, admin_router
 from prometheus_fastapi_instrumentator import Instrumentator
 from contextlib import asynccontextmanager
+from app.core.supabase_client import crear_cliente_supabase
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -21,9 +22,6 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-from contextlib import asynccontextmanager
-from fastapi import FastAPI
-from app.core.supabase_client import crear_cliente_supabase
 
 
 
