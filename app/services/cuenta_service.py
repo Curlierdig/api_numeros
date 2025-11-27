@@ -240,8 +240,8 @@ class CuentaService:
             if rol == "normal":
                 usuario = await self.db.obtener_id_y_nombre_usuario_por_correo_y_telefono(correo, contrasena)
                 if usuario:
-                    token = crear_token_acceso(id=usuario[0]['idusuario'], nombre=usuario[0]['nombre'], rol="normal")
-                    return token, "normal", usuario[0]['idusuario']
+                    token = crear_token_acceso(id=usuario['idusuario'], nombre=usuario['nombre'], rol="normal")
+                    return token, "normal", usuario['idusuario']
                 raise HTTPException(
                     status_code=status.HTTP_401_UNAUTHORIZED,
                     detail="Credenciales inválidas para usuario normal"
@@ -252,7 +252,6 @@ class CuentaService:
                     detail="La matrícula es obligatoria para administradores"
                 )
             contrasena_hasheada = await self.db.obtener_contrasena_administrador_por_matricula(matricula)
-            logger.warning(contrasena_hasheada)
             if not contrasena_hasheada:
                 raise HTTPException(
                     status_code=status.HTTP_401_UNAUTHORIZED,
@@ -266,9 +265,9 @@ class CuentaService:
                 )
             admin = await self.db.obtener_id_nombre_y_rol_administrador_por_correo_y_matricula(correo, matricula)
             if admin:
-                rol_admin = "superadmin" if admin[0].get('essuper') else "admin"
-                token = crear_token_acceso(id=admin[0]['idadmin'], nombre=admin[0]['nombre'], rol=rol_admin)
-                return token, rol_admin, admin[0]['idadmin']
+                rol_admin = "superadmin" if admin.get('essuper') else "admin"
+                token = crear_token_acceso(id=admin['idadmin'], nombre=admin['nombre'], rol=rol_admin)
+                return token, rol_admin, admin['idadmin']
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Credenciales inválidas para administrador"
@@ -280,4 +279,4 @@ class CuentaService:
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail=f"Error interno del servidor: {e}"
-            )
+            ) from e

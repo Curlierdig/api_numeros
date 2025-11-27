@@ -53,7 +53,6 @@ class CuentaRepository:
 
             # 3. La respuesta viene en response.data
             resultado = response.data 
-            
             if not resultado:
                 raise RuntimeError("La base de datos no devolvió respuesta.")
 
@@ -61,11 +60,11 @@ class CuentaRepository:
                 # Aquí decides si lanzar una excepción o retornar un False
                 logger.warning(f"Login fallido: {resultado.get('mensaje')}")
                 return None # O raise ValueError(resultado.get("mensaje"))
-
+            print("Data obtenida:", resultado.get("data"))
             return resultado.get("data")
 
         except Exception as e:
-            logger.error(f"Error crítico en validar_login_usuario: {e}")
+            logger.error(f"Error crítico en repository de login: {e}")
             # Manejo de error de conexión o de la librería
             raise e
 
