@@ -48,6 +48,7 @@ async def obtener_incidencia_completa(idReporte: str, incidencia_service: Incide
 @router.post("/crear")
 async def crear_incidencia(incidencia: CrearIncidencia, 
                            incidencia_service: IncidenciaService = Depends(get_incidencia_service)):
+    print(incidencia)
     resultado = await incidencia_service.crear_incidencia(incidencia)
     return resultado
 

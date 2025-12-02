@@ -25,7 +25,7 @@ async def login(
     cuenta_service: CuentaService = Depends(get_cuenta_service)
 ):
     try:
-        token, rol, id = await cuenta_service.login(correo, contrasena, rol, matricula)
+        token, rol, id, nombre = await cuenta_service.login(correo, contrasena, rol, matricula)
         if not token:
             raise HTTPException(status_code=401, detail="Credenciales inválidas")
         logger.info(f"Usuario {correo} ha iniciado sesión como {rol} con token {token}")
@@ -37,7 +37,7 @@ async def login(
             secure=False,    # solo se envía por HTTPS
             samesite="none"  # protección CSRF
         )
-        return {"mensaje": "Inicio de sesión exitoso.", "rol": rol, "id": id}
+        return {"mensaje": "Inicio de sesión exitoso.", "rol": rol, "id": id, "nombre": nombre}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

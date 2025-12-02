@@ -241,7 +241,7 @@ class CuentaService:
                 usuario = await self.db.obtener_id_y_nombre_usuario_por_correo_y_telefono(correo, contrasena)
                 if usuario:
                     token = crear_token_acceso(id=usuario['idusuario'], nombre=usuario['nombre'], rol="normal")
-                    return token, "normal", usuario['idusuario']
+                    return token, "normal", usuario['idusuario'], None
                 raise HTTPException(
                     status_code=status.HTTP_401_UNAUTHORIZED,
                     detail="Credenciales inválidas para usuario normal"
@@ -265,9 +265,9 @@ class CuentaService:
                 )
             admin = await self.db.obtener_id_nombre_y_rol_administrador_por_correo_y_matricula(correo, matricula)
             if admin:
-                rol_admin = "superadmin" if admin.get('essuper') else "admin"
-                token = crear_token_acceso(id=admin['idadmin'], nombre=admin['nombre'], rol=rol_admin)
-                return token, rol_admin, admin['idadmin']
+                rol_admin = "superadmin" if admin[0]['essuper'] else "admin"
+                token = crear_token_acceso(id=admin[0]['idadmin'], nombre=admin[0]['nombre'], rol=rol_admin)
+                return token, rol_admin, admin[0]['idadmin'], admin[0]['nombre']
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Credenciales inválidas para administrador"
@@ -275,7 +275,7 @@ class CuentaService:
         except HTTPException:
             raise
         except Exception as e:
-            logger.error("Error en login")
+            logger.error(f"Error en login {e}")
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail=f"Error interno del servidor: {e}"

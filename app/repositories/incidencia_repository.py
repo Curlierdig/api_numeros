@@ -13,7 +13,7 @@ class IncidenciaRepository:
     # ==============================
     # REPORTES / INCIDENCIAS
     # ==============================
-    async def crear_incidencia(self, datos_incidencia: dict):
+    async def  crear_incidencia(self, datos_incidencia: dict):
         """Crea una nueva incidencia y maneja la lógica de inserción en tablas relacionadas.
             Parámetros:
                 datos_incidencia (dict): Diccionario con los datos de la incidencia. Debe contener:
@@ -127,6 +127,7 @@ class IncidenciaRepository:
         try:
             response = await self.cliente.table(self.vista_reportes).select("*").eq("idreporte", idReporte).execute()
             if response.data and len(response.data) > 0:
+                print(response.data)
                 return response.data
             return None
         except Exception as e:
