@@ -3,17 +3,15 @@ from fastapi import Depends, HTTPException
 from app.models.cuenta_model import UserModel
 from app.services.instancias import get_cuenta_service
 from app.services.cuenta_service import CuentaService
-from app.utils.logger import logger
 
-DURACION_TOKEN = 3600  # Duración del token en segundos (1 hora)
+DURACION_TOKEN = 28800  # Duración del token en segundos (8 horas)
 
 router = APIRouter(prefix="/auth", tags=["Autenticación"])
 
 @router.post("/registrar")
 async def registrar(usuario: UserModel, cuenta_service: CuentaService = Depends(get_cuenta_service)):
     id = await cuenta_service.registrar_usuario(usuario)
-    logger.info(f"Usuario {usuario.correo} registrado exitosamente.")
-    return {"mensaje": "Usuario registrado exitosamente.", "id": id}
+    return {"mensaje": "Usuario registrado exitosamente."}
 
 @router.post("/login")
 async def login(
@@ -25,10 +23,9 @@ async def login(
     cuenta_service: CuentaService = Depends(get_cuenta_service)
 ):
     try:
-        token, rol, id = await cuenta_service.login(correo, contrasena, rol, matricula)
+        token, rol, id, nombre = await cuenta_service.login(correo, contrasena, rol, matricula)
         if not token:
             raise HTTPException(status_code=401, detail="Credenciales inválidas")
-        logger.info(f"Usuario {correo} ha iniciado sesión como {rol} con token {token}")
         response.set_cookie(
             key="access_token",
             value=token,
@@ -37,7 +34,7 @@ async def login(
             secure=False,    # solo se envía por HTTPS
             samesite="none"  # protección CSRF
         )
-        return {"mensaje": "Inicio de sesión exitoso.", "rol": rol, "id": id}
+        return {"mensaje": "Inicio de sesión exitoso.", "rol": rol, "id": id, "nombre": nombre}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

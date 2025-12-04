@@ -13,7 +13,7 @@ class IncidenciaRepository:
     # ==============================
     # REPORTES / INCIDENCIAS
     # ==============================
-    async def crear_incidencia(self, datos_incidencia: dict):
+    async def  crear_incidencia(self, datos_incidencia: dict):
         """Crea una nueva incidencia y maneja la lógica de inserción en tablas relacionadas.
             Parámetros:
                 datos_incidencia (dict): Diccionario con los datos de la incidencia. Debe contener:
@@ -33,42 +33,34 @@ class IncidenciaRepository:
                 dict: Diccionario con el mensaje de éxito y el ID del nuevo reporte.    
         """
         try:
-            numero_reportado = datos_incidencia.get("numeroReportado")
-            response_numero = await self.cliente.table(self.tabla_reportados).select("idnumero").eq("numeroreportado", numero_reportado).execute()
-
-            if not response_numero.data:
-                response_numero = await self.cliente.table(self.tabla_reportados).insert({"numeroreportado": numero_reportado}).execute()
-            datos_reporte = {
-                "idusuario": datos_incidencia["idUsuario"],
-                "idnumero": response_numero.data[0]["idnumero"],
-                "categoriareporte": datos_incidencia.get("categoriaReporte"),
-                "descripcion": datos_incidencia.get("descripcion"),
-                "mediocontacto": datos_incidencia.get("medioContacto"),
-                "genero": datos_incidencia.get("genero"),
-                "supuestonombre": datos_incidencia.get("supuestoNombre"),
-                "supuestotrabajo": datos_incidencia.get("supuestoTrabajo"),
-                "esvisible": datos_incidencia.get("esVisible", True),
-                "estatus": datos_incidencia.get("estatus", "pendiente")
-            }
-            response = await self.cliente.table(self.tabla_incidencias).insert(datos_reporte).execute()
-
-            if not response.data:
-                raise RuntimeError("No se pudo crear el reporte")
-            id_reporte = response.data[0]["idreporte"]
-            tipo_destino = datos_incidencia.get("tipoDestino")
-
-            if tipo_destino in ["tarjeta", "ubicacion"]:
-                datos_destino = {
-                    "tipoenum": tipo_destino,
-                    "numerotarjeta": datos_incidencia.get("numeroTarjeta"),
-                    "direccion": datos_incidencia.get("direccion"),
-                    "idreporte": id_reporte
+                params = {
+                    "p_id_usuario": datos_incidencia["idUsuario"],
+                    "p_numero_reportado": datos_incidencia["numeroReportado"],
+                    "p_categoria_reporte": datos_incidencia.get("categoriaReporte"),
+                    "p_descripcion": datos_incidencia.get("descripcion"),
+                    "p_medio_contacto": datos_incidencia.get("medioContacto"),
+                    "p_genero": datos_incidencia.get("genero"),
+                    "p_supuesto_nombre": datos_incidencia.get("supuestoNombre"),
+                    "p_supuesto_trabajo": datos_incidencia.get("supuestoTrabajo"),
+                    "p_es_visible": datos_incidencia.get("esVisible", True),
+                    "p_estatus": datos_incidencia.get("estatus", "pendiente"),
+                    # Campos opcionales de destino
+                    "p_tipo_destino": datos_incidencia.get("tipoDestino"),
+                    "p_numero_tarjeta": datos_incidencia.get("numeroTarjeta"),
+                    "p_direccion": datos_incidencia.get("direccion")
                 }
-                await self.cliente.table(self.tabla_destino).insert(datos_destino).execute()
-            return {"mensaje": "Incidencia creada correctamente", "idReporte": id_reporte}
+
+                # Llamada RPC a la función creada
+                response = await self.cliente.rpc("crear_incidencia_completa", params).execute()
+
+                if not response.data:
+                    raise RuntimeError("La base de datos no retornó datos.")
+
+                return response.data
+
         except Exception as e:
-            logger.error(f"Error al crear incidencia: {e}")
-            raise RuntimeError("Error al crear incidencia")
+                logger.error(f"Error al crear incidencia: {e}")
+                raise RuntimeError(f"Error al crear incidencia: {str(e)}")
 
     async def obtener_incidencias_usuario(self, limite: int = 20, cursor: str = None): #Join implicito con la tabla reportados que intercambia el nombre de la columna numeroReportado por reportados.numeroReportado
         try:
@@ -135,6 +127,7 @@ class IncidenciaRepository:
         try:
             response = await self.cliente.table(self.vista_reportes).select("*").eq("idreporte", idReporte).execute()
             if response.data and len(response.data) > 0:
+                print(response.data)
                 return response.data
             return None
         except Exception as e:

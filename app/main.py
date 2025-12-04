@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api import user_router, auth_router, incidencias_router, super_admin_router, admin_router
+from app.api import auth_router, incidencias_router, super_admin_router, admin_router
 from prometheus_fastapi_instrumentator import Instrumentator
 from contextlib import asynccontextmanager
 from app.core.supabase_client import crear_cliente_supabase
@@ -22,10 +22,6 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-
-
-
-
 # Configuración de CORS (para permitir frontend externo)
 origins = [
     "http://127.0.0.1:5500",
@@ -43,7 +39,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(user_router.router) 
 app.include_router(auth_router.router)
 app.include_router(incidencias_router.router)
 app.include_router(super_admin_router.router)
