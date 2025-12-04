@@ -1,6 +1,6 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request, Query
+from app.core.limiter import limiter
 from app.models.incidencia_model import CrearIncidencia
-from fastapi import Query
 from app.services.incidencia_service import IncidenciaService
 from app.services.instancias import get_incidencia_service
 from app.utils.logger import logger
@@ -46,7 +46,9 @@ async def obtener_incidencia_completa(idReporte: str, incidencia_service: Incide
         raise HTTPException(status_code=500, detail=f"Error al obtener incidencia: {e}")
 
 @router.post("/crear")
-async def crear_incidencia(incidencia: CrearIncidencia, 
+@limiter.limit("3/minute")
+@limiter.limit("10/day")
+async def crear_incidencia(request: Request, incidencia: CrearIncidencia, 
                            incidencia_service: IncidenciaService = Depends(get_incidencia_service)):
     resultado = await incidencia_service.crear_incidencia(incidencia)
     return resultado

@@ -12,3 +12,4 @@ bcrypt==3.2.2
 supabase==2.5.0              
 python-multipart==0.0.20
 prometheus-fastapi-instrumentator==7.1.0
+slowapi==0.1.9

@@ -1,20 +1,28 @@
-from fastapi import APIRouter, Form, Response
+from fastapi import APIRouter, Form, Request, Response
 from fastapi import Depends, HTTPException
 from app.models.cuenta_model import UserModel
 from app.services.instancias import get_cuenta_service
 from app.services.cuenta_service import CuentaService
+from app.core.limiter import limiter
 
 DURACION_TOKEN = 28800  # Duración del token en segundos (8 horas)
 
 router = APIRouter(prefix="/auth", tags=["Autenticación"])
 
 @router.post("/registrar")
-async def registrar(usuario: UserModel, cuenta_service: CuentaService = Depends(get_cuenta_service)):
+@limiter.limit("5/minute")
+@limiter.limit("10/day")
+async def registrar(request: Request, usuario: UserModel, cuenta_service: CuentaService = Depends(get_cuenta_service)):
     id = await cuenta_service.registrar_usuario(usuario)
+    if not id:
+        raise HTTPException(status_code=400, detail="Error al registrar el usuario.")
     return {"mensaje": "Usuario registrado exitosamente."}
 
 @router.post("/login")
+@limiter.limit("3/minute")
+@limiter.limit("10/hour")
 async def login(
+    request: Request,
     response: Response,
     correo: str = Form(...),
     contrasena: str = Form(...), #en caso de ser usuario normal es su celular
