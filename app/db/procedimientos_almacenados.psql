@@ -132,3 +132,81 @@ EXCEPTION WHEN OTHERS THEN
     );
 END;
 $$;
+
+CREATE OR REPLACE FUNCTION crear_usuario_con_correo(
+    p_idAdmin          UUID,
+    p_nombre           TEXT,
+    p_correo           TEXT,
+    p_numeroTelefono   VARCHAR,
+    p_edad             INT,
+    p_sexo             VARCHAR,
+    p_municipio        TEXT,
+    p_entidadForanea   TEXT,
+    p_totalReportes    INT DEFAULT 0
+)
+RETURNS JSON
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    v_id_usuario UUID;
+BEGIN
+    -- 1. Crear usuario
+    INSERT INTO usuarios (
+        idAdmin,
+        nombre,
+        numeroTelefono,
+        edad,
+        sexo,
+        municipio,
+        entidadForanea,
+        totalReportes
+    )
+    VALUES (
+        p_idAdmin,
+        p_nombre,
+        p_numeroTelefono,
+        p_edad,
+        p_sexo,
+        p_municipio,
+        p_entidadForanea,
+        p_totalReportes
+    )
+    RETURNING idUsuario INTO v_id_usuario;
+
+    -- 2. Insertar correo
+    INSERT INTO correos (idUsuario, correo)
+    VALUES (v_id_usuario, p_correo);
+
+    -- 3. Respuesta OK
+    RETURN json_build_object(
+        'error', false,
+        'mensaje', 'Usuario creado correctamente',
+        'data', json_build_object(
+            'idusuario', v_id_usuario,
+            'nombre', p_nombre,
+            'correo', p_correo,
+            'telefono', p_numeroTelefono
+        )
+    );
+
+EXCEPTION
+    WHEN unique_violation THEN
+        RETURN json_build_object(
+            'error', true,
+            'mensaje', 'El correo o teléfono ya están registrados'
+        );
+
+    WHEN foreign_key_violation THEN
+        RETURN json_build_object(
+            'error', true,
+            'mensaje', 'El idAdmin no existe'
+        );
+
+    WHEN OTHERS THEN
+        RETURN json_build_object(
+            'error', true,
+            'mensaje', 'Error al crear usuario',
+            'detalle', SQLERRM
+        );
+END;
+$$;

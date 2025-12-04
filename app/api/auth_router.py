@@ -28,7 +28,6 @@ async def login(
         token, rol, id, nombre = await cuenta_service.login(correo, contrasena, rol, matricula)
         if not token:
             raise HTTPException(status_code=401, detail="Credenciales inválidas")
-        logger.info(f"Usuario {correo} ha iniciado sesión como {rol} con token {token}")
         response.set_cookie(
             key="access_token",
             value=token,

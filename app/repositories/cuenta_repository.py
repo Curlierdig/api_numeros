@@ -6,25 +6,30 @@ class CuentaRepository:
         self.cliente = cliente 
 
     # --- Métodos de Usuarios ---
-    async def insertar_correo_usuario(self, idUsuario: str, correo: str):
+    async def crear_usuario_con_correo(self, usuario: dict):
         try:
-            response = await self.cliente.table("correos").insert({"idusuario": idUsuario, "correo": correo}).execute()
-            return response.data
-        except Exception as e:
-            logger.error(f"Error de Supabase al insertar correo para usuario ({idUsuario}): {str(e)}")
-            raise RuntimeError("Error al insertar correo del usuario") from e
-
-    async def crear_usuario(self, datos_usuario: dict): 
-        try:
-            response = await self.cliente.table("usuarios").insert(datos_usuario).execute()
+            response = await self.cliente.rpc(
+                "crear_usuario_con_correo",
+                {
+                    "p_idadmin": usuario["idadmin"],
+                    "p_nombre": usuario["nombre"],
+                    "p_correo": usuario["correo"],
+                    "p_numerotelefono": usuario["numerotelefono"],
+                    "p_edad": usuario["edad"],
+                    "p_sexo": usuario["sexo"],
+                    "p_municipio": usuario["municipio"],
+                    "p_entidadforanea": usuario["entidadforanea"],
+                    "p_totalreportes": 0
+                }
+            ).execute()
             if response.data is None or len(response.data) == 0:
-                logger.error("No se pudo crear el usuario, respuesta vacía de Supabase")
+                logger.error("No se pudo crear el usuario con correo, respuesta vacía de Supabase")
                 raise RuntimeError("Error al crear usuario en la base de datos")
-            return response.data
+            return "Registro exitoso"
         except Exception as e:
             logger.error(f"Error de Supabase al crear usuario: {str(e)}")
             raise RuntimeError(f"Error al crear usuario en la base de datos: {str(e)}") from e
-
+    
     async def obtener_dato_usuario_por_id(self, idUsuario: str, dato_requerido: str = "*"):
         try:
             response = await self.cliente.table("usuarios").select(dato_requerido).eq("id", idUsuario).execute()
@@ -35,36 +40,29 @@ class CuentaRepository:
         except Exception as e:
             logger.error(f"Error de Supabase al obtener usuario por ID ({idUsuario}): {str(e)}")
             raise RuntimeError("Error al obtener datos del usuario") from e
-        
 
     async def obtener_id_y_nombre_usuario_por_correo_y_telefono(self, correo: str, telefono: str):
         """
         Verifica si existe un usuario con el correo y teléfono dados.
         """
         try:
-            # 1. Preparamos los parámetros exactos que pide tu función SQL
             params = {
                 "p_correo": correo,
                 "p_telefono": telefono
             }
-            # 2. Llamada RPC (Remote Procedure Call)
-            # Nota: Asegúrate de poner el nombre exacto de tu función en la base de datos
             response = await self.cliente.rpc("obtener_usuario_por_correo_y_telefono", params).execute()
 
-            # 3. La respuesta viene en response.data
             resultado = response.data 
             if not resultado:
                 raise RuntimeError("La base de datos no devolvió respuesta.")
 
             if resultado.get("error") is True:
                 logger.warning(f"Login fallido: {resultado.get('mensaje')}")
-                return None # O raise ValueError(resultado.get("mensaje"))
-            print("Data obtenida:", resultado.get("data"))
+                return None 
             return resultado.get("data")
 
         except Exception as e:
             logger.error(f"Error crítico en repository de login: {e}")
-            # Manejo de error de conexión o de la librería
             raise e
 
     async def verificar_existencia_usuario_por_telefono(self, telefono: str):
@@ -74,7 +72,6 @@ class CuentaRepository:
             .eq("numerotelefono", telefono)\
             .limit(1)\
             .execute()
-            #response = await self.cliente.table("usuarios").select("idusuario").eq("numerotelefono", telefono).execute()
             return response.count > 0
         except Exception as e:
             logger.error(f"Error de Supabase al verificar existencia de usuario por teléfono ({telefono}): {str(e)}")

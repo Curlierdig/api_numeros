@@ -158,25 +158,20 @@ class CuentaService:
                     status_code=status.HTTP_400_BAD_REQUEST,
                     detail="El número de teléfono debe contener solo dígitos (10 a 15 caracteres)"
                 )
-            nuevo_usuario = await self.db.crear_usuario({
+            nuevo_usuario = await self.db.crear_usuario_con_correo({
                 "idadmin": datos_usuario.get("idAdmin"),
                 "nombre": datos_usuario["nombre"],
                 "edad": datos_usuario["edad"],
                 "sexo": datos_usuario["sexo"],
                 "numerotelefono": datos_usuario["numeroTelefono"],
                 "municipio": datos_usuario["municipio"],
-                "entidadforanea": datos_usuario["entidadForanea"]
+                "entidadforanea": datos_usuario["entidadForanea"],
+                "correo": datos_usuario["correo"]
             })
             if not nuevo_usuario:
                 raise HTTPException(
                     status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                     detail="Error al crear el usuario en la base de datos"
-                )
-            correo_insertado = await self.db.insertar_correo_usuario(nuevo_usuario[0]["idusuario"], datos_usuario["correo"])
-            if not correo_insertado:
-                raise HTTPException(
-                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                    detail="Error al insertar el correo del usuario en la base de datos"
                 )
             return nuevo_usuario
         except HTTPException:
