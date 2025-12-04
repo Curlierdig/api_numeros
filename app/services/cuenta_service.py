@@ -158,25 +158,20 @@ class CuentaService:
                     status_code=status.HTTP_400_BAD_REQUEST,
                     detail="El número de teléfono debe contener solo dígitos (10 a 15 caracteres)"
                 )
-            nuevo_usuario = await self.db.crear_usuario({
+            nuevo_usuario = await self.db.crear_usuario_con_correo({
                 "idadmin": datos_usuario.get("idAdmin"),
                 "nombre": datos_usuario["nombre"],
                 "edad": datos_usuario["edad"],
                 "sexo": datos_usuario["sexo"],
                 "numerotelefono": datos_usuario["numeroTelefono"],
                 "municipio": datos_usuario["municipio"],
-                "entidadforanea": datos_usuario["entidadForanea"]
+                "entidadforanea": datos_usuario["entidadForanea"],
+                "correo": datos_usuario["correo"]
             })
             if not nuevo_usuario:
                 raise HTTPException(
                     status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                     detail="Error al crear el usuario en la base de datos"
-                )
-            correo_insertado = await self.db.insertar_correo_usuario(nuevo_usuario[0]["idusuario"], datos_usuario["correo"])
-            if not correo_insertado:
-                raise HTTPException(
-                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                    detail="Error al insertar el correo del usuario en la base de datos"
                 )
             return nuevo_usuario
         except HTTPException:
@@ -240,8 +235,8 @@ class CuentaService:
             if rol == "normal":
                 usuario = await self.db.obtener_id_y_nombre_usuario_por_correo_y_telefono(correo, contrasena)
                 if usuario:
-                    token = crear_token_acceso(id=usuario[0]['idusuario'], nombre=usuario[0]['nombre'], rol="normal")
-                    return token, "normal", usuario[0]['idusuario']
+                    token = crear_token_acceso(id=usuario['idusuario'], nombre=usuario['nombre'], rol="normal")
+                    return token, "normal", usuario['idusuario'], None
                 raise HTTPException(
                     status_code=status.HTTP_401_UNAUTHORIZED,
                     detail="Credenciales inválidas para usuario normal"
@@ -252,7 +247,6 @@ class CuentaService:
                     detail="La matrícula es obligatoria para administradores"
                 )
             contrasena_hasheada = await self.db.obtener_contrasena_administrador_por_matricula(matricula)
-            logger.warning(contrasena_hasheada)
             if not contrasena_hasheada:
                 raise HTTPException(
                     status_code=status.HTTP_401_UNAUTHORIZED,
@@ -266,9 +260,9 @@ class CuentaService:
                 )
             admin = await self.db.obtener_id_nombre_y_rol_administrador_por_correo_y_matricula(correo, matricula)
             if admin:
-                rol_admin = "superadmin" if admin[0].get('essuper') else "admin"
+                rol_admin = "superadmin" if admin[0]['essuper'] else "admin"
                 token = crear_token_acceso(id=admin[0]['idadmin'], nombre=admin[0]['nombre'], rol=rol_admin)
-                return token, rol_admin, admin[0]['idadmin']
+                return token, rol_admin, admin[0]['idadmin'], admin[0]['nombre']
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Credenciales inválidas para administrador"
@@ -276,8 +270,8 @@ class CuentaService:
         except HTTPException:
             raise
         except Exception as e:
-            logger.error("Error en login")
+            logger.error(f"Error en login {e}")
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail=f"Error interno del servidor: {e}"
-            )
+            ) from e
